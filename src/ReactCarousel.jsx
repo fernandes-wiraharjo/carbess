@@ -2,7 +2,6 @@ import Carousel from 'better-react-carousel';
 import './ReactCarousel.css';
 
 function ReactCarousel() {
-  // your custom dot component with prop `isActive`
   const MyDot = ({ isActive }) => (
     <span
       style={{
