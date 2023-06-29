@@ -4,8 +4,6 @@ import CardMedia from '@mui/material/CardMedia';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './RecommendedItem.css';
 
@@ -16,7 +14,13 @@ export default function RecommendedItem() {
                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
                     Direkomendasikan untuk Anda
                 </Typography>
-                <Button id="btnShowAllTop" variant="contained" size="small">{`Tampilkan Semua Mobil >>`}</Button>
+                <Button id="btnShowAllTop" variant="contained" size="small" sx={{ 
+                    backgroundColor: '#000',
+                    ':hover': {
+                        backgroundColor: '#000',
+                        opacity: '0.6'
+                      }
+                    }}>{`Tampilkan Semua Mobil >>`}</Button>
             </div>
             <Grid container spacing={2} mt={2}>
                 <Grid item sm={6} md={2.4}>
@@ -29,7 +33,7 @@ export default function RecommendedItem() {
                                 alt="recommended item 1"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div" color="primary">
+                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
                                     Fortuner v 4x4 AT 2012
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
@@ -38,11 +42,7 @@ export default function RecommendedItem() {
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button aria-label="telpon" variant="outlined" sx={{ width: '49%' }} size="medium">
-                                <LocalPhoneRoundedIcon />
-                            </Button>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ marginLeft: 'auto', width: '49%' }} 
-                                color="success" size="medium">
+                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />
                             </Button>
                         </CardActions>
@@ -58,7 +58,7 @@ export default function RecommendedItem() {
                                 alt="recommended item 2"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div" color="primary">
+                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
                                     MAZDA 2 R 2016 Skyactive
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
@@ -66,12 +66,8 @@ export default function RecommendedItem() {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="telpon" variant="outlined" sx={{ width: '49%' }} size="medium">
-                                <LocalPhoneRoundedIcon />
-                            </Button>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ marginLeft: 'auto', width: '49%' }} 
-                                color="success" size="medium">
+                        <CardActions>                            
+                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />
                             </Button>
                         </CardActions>
@@ -87,7 +83,7 @@ export default function RecommendedItem() {
                                 alt="recommended item 3"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div" color="primary">
+                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
                                     Raize 1.0 Turbo Sport 2021
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
@@ -95,12 +91,8 @@ export default function RecommendedItem() {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="telpon" variant="outlined" sx={{ width: '49%' }} size="medium">
-                                <LocalPhoneRoundedIcon />
-                            </Button>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ marginLeft: 'auto', width: '49%' }} 
-                                color="success" size="medium">
+                        <CardActions>                            
+                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />
                             </Button>
                         </CardActions>
@@ -116,7 +108,7 @@ export default function RecommendedItem() {
                                 alt="recommended item 4"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div" color="primary">
+                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
                                     Honda Brio E Cvt 2019
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
@@ -124,12 +116,8 @@ export default function RecommendedItem() {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="telpon" variant="outlined" sx={{ width: '49%' }} size="medium">
-                                <LocalPhoneRoundedIcon />
-                            </Button>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ marginLeft: 'auto', width: '49%' }} 
-                                color="success" size="medium">
+                        <CardActions>                            
+                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />
                             </Button>
                         </CardActions>
@@ -145,7 +133,7 @@ export default function RecommendedItem() {
                                 alt="recommended item 5"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div" color="primary">
+                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
                                     Jazz rs 2011
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
@@ -153,19 +141,21 @@ export default function RecommendedItem() {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="telpon" variant="outlined" sx={{ width: '49%' }} size="medium">
-                                <LocalPhoneRoundedIcon />
-                            </Button>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ marginLeft: 'auto', width: '49%' }} 
-                                color="success" size="medium">
+                        <CardActions>                            
+                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />
                             </Button>
                         </CardActions>
                     </Card>
                 </Grid>
             </Grid>
-            <Button id='btnShowAllBottom' variant="contained" size="small">{`Tampilkan Semua Mobil >>`}</Button>
+            <Button id='btnShowAllBottom' variant="contained" size="small" sx={{ 
+                backgroundColor: '#000',
+                ':hover': {
+                    backgroundColor: '#000',
+                    opacity: '0.6'
+                    }
+                }}>{`Tampilkan Semua Mobil >>`}</Button>
         </section>
     );
 }

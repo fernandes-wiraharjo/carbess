@@ -3,8 +3,9 @@ import { CssBaseline } from '@mui/material';
 import Container from '@mui/material/Container';
 import NavBar from './NavBar';
 import NewArrival from './NewArrival';
-import RecommendedItem from './RecommendedItem';
 import ReactCarousel from './ReactCarousel';
+import RecommendedItem from './RecommendedItem';
+import StepToBuyBanner from './StepToBuyBanner';
 
 const theme = createTheme({
   typography: {
@@ -23,6 +24,12 @@ const theme = createTheme({
       '5xl': 3200,
     },
   },
+  palette: {
+    black: {
+      main: '#000',
+      color: '#fff'
+    }
+  }
 });
 
 function App() {
@@ -35,6 +42,7 @@ function App() {
         <ThemeProvider theme={responsiveFontSizes(theme, { breakpoints: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'], factor: 5 })}>
           <NewArrival />
           <RecommendedItem />
+          <StepToBuyBanner />
         </ThemeProvider>
       </Container>
     </>

@@ -28,14 +28,11 @@ function ReactCarousel() {
         <Carousel.Item>
           <img src="/images/carousel/1.png"/>
         </Carousel.Item>
-        {/* <Carousel.Item>
-          <img src="/images/carousel/2.png" />
-        </Carousel.Item> */}
-        <Carousel.Item>
-          <img src="/images/carousel/4.png"/>
-        </Carousel.Item>
         <Carousel.Item>
           <img src="/images/carousel/3.png"/>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="/images/carousel/4.png"/>
         </Carousel.Item>
         <Carousel.Item>
           <img src="/images/carousel/5.png"/>
