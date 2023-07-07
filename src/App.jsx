@@ -7,6 +7,7 @@ import ReactCarousel from './ReactCarousel';
 import RecommendedItem from './RecommendedItem';
 import StepToBuyBanner from './StepToBuyBanner';
 import BrandList from './BrandList';
+import PopularSearches from './PopularSearches';
 
 const theme = createTheme({
   typography: {
@@ -45,6 +46,7 @@ function App() {
           <RecommendedItem />
           <StepToBuyBanner />
           <BrandList />
+          <PopularSearches />
         </ThemeProvider>
       </Container>
     </>
