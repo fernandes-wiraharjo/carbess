@@ -1,5 +1,7 @@
-import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+import './App.css';
 import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { responsiveFonts } from './Theme';
 import Container from '@mui/material/Container';
 import NavBar from './NavBar';
 import NewArrival from './NewArrival';
@@ -8,48 +10,25 @@ import RecommendedItem from './RecommendedItem';
 import StepToBuyBanner from './StepToBuyBanner';
 import BrandList from './BrandList';
 import PopularSearches from './PopularSearches';
-
-const theme = createTheme({
-  typography: {
-    h1: { fontSize: '5rem' },
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 425,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      '2xl': 1536,
-      '3xl': 1920,
-      '4xl': 2560,
-      '5xl': 3200,
-    },
-  },
-  palette: {
-    black: {
-      main: '#000',
-      color: '#fff'
-    }
-  }
-});
+import Footer from './Footer';
 
 function App() {
   return (   
-    <> 
+    <div className='App'>
       <CssBaseline />
       <NavBar />
-      <ReactCarousel />
-      <Container maxWidth='lg'>
-        <ThemeProvider theme={responsiveFontSizes(theme, { breakpoints: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'], factor: 5 })}>
-          <NewArrival />
-          <RecommendedItem />
-          <StepToBuyBanner />
-          <BrandList />
-          <PopularSearches />
-        </ThemeProvider>
-      </Container>
-    </>
+        <ReactCarousel />
+        <Container maxWidth='lg'>
+          <ThemeProvider theme={responsiveFonts}>
+            <NewArrival />
+            <RecommendedItem />
+            <StepToBuyBanner />
+            <BrandList />
+            <PopularSearches />
+          </ThemeProvider>
+        </Container>
+      <Footer />
+    </div>
   )
 }
 

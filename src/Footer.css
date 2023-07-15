@@ -1,0 +1,35 @@
+.Footer {
+    margin: 60px 0 0 0;
+    background-color: #F7F8FA;    
+    padding: 50px 0 30px 0;
+}
+
+.Footer a {    
+    text-decoration: none;
+}
+
+.Footer a:hover {
+    opacity: 0.8;
+}
+
+.Footer .footerContent {
+    margin-top: 10px;
+}
+
+#footerAboutUs {
+    margin-left: 60px;
+}
+
+#footerDevBy {
+    margin-left: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+    #footerAboutUs, #footerDevBy {
+        margin-left: 0;
+    }
+
+    #footerAboutUs .footerContent {
+        margin-bottom: 20px;
+    }
+}
