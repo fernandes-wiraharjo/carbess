@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { responsiveFonts } from './Theme';
 import Container from '@mui/material/Container';
 import NavBar from './NavBar';
+import GlobalSearch from './GlobalSearch';
 import NewArrival from './NewArrival';
 import ReactCarousel from './ReactCarousel';
 import RecommendedItem from './RecommendedItem';
@@ -20,6 +21,7 @@ function App() {
         <ReactCarousel />
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
+            <GlobalSearch />
             <NewArrival />
             <RecommendedItem />
             <StepToBuyBanner />

@@ -6,21 +6,21 @@ const theme = createTheme({
     },
     breakpoints: {
         values: {
-        xs: 0,
-        sm: 425,
-        md: 768,
-        lg: 1024,
-        xl: 1280,
-        '2xl': 1536,
-        '3xl': 1920,
-        '4xl': 2560,
-        '5xl': 3200,
+            xs: 0,
+            sm: 425,
+            md: 768,
+            lg: 1024,
+            xl: 1280,
+            '2xl': 1536,
+            '3xl': 1920,
+            '4xl': 2560,
+            '5xl': 3200,
         },
     },
     palette: {
         black: {
-        main: '#000',
-        color: '#fff'
+            main: '#000',
+            color: '#fff'
         }
     }
 });
