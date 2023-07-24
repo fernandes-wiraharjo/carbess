@@ -1,6 +1,13 @@
-.logo {
-    height: 10em;
+.Navbar {
+    height: 5em;
+}
+
+.Navbar div {
+    flex-grow: 1;
+}
+
+.Navbar img {
+    height: 3.5em;
     will-change: filter;
     transition: filter 300ms;
-    margin: auto;
 }
