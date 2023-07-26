@@ -25,7 +25,7 @@ export default function RecommendedItem() {
                 >{`Tampilkan Semua Mobil >>`}</Button>
             </div>
             <Grid container spacing={2} mt={2}>
-                <Grid item xs={12} md={2.4}>
+                <Grid item xs={12} sm={6} lg={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -50,7 +50,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={2.4}>
+                <Grid item xs={12} sm={6} lg={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -75,7 +75,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={2.4}>
+                <Grid item xs={12} sm={6} lg={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -100,7 +100,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={2.4}>
+                <Grid item xs={12} sm={6} lg={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -125,7 +125,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={2.4}>
+                <Grid item xs={12} sm={6} lg={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia

@@ -24,12 +24,46 @@
     margin-left: 200px;
 }
 
+@media only screen and (max-width: 912px) {
+    #footerDevBy {
+        margin-left: 100px;
+    }
+}
+
+/* @media only screen and (max-width: 820px) {
+    #footerDevBy {
+        margin-left: 100px;
+    }
+} */
+
 @media only screen and (max-width: 768px) {
-    #footerAboutUs, #footerDevBy {
+    #footerAboutUs {
         margin-left: 0;
+    }
+
+    #footerDevBy {
+        margin-left: 80px;
     }
 
     #footerAboutUs .footerContent {
         margin-bottom: 20px;
     }
 }
+
+@media only screen and (max-width: 540px) {
+    #footerDevBy {
+        margin-left: 0px;
+    }
+}
+
+/* @media only screen and (max-width: 414px) {
+    #footerDevBy {
+        margin-left: 0px;
+    }
+} */
+
+/* @media only screen and (max-width: 376px) {
+    #footerDevBy {
+        margin-left: 0px;
+    }
+} */

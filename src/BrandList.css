@@ -2,6 +2,12 @@
     margin: 60px 0 50px 0;
 }
 
+@media only screen and (max-width: 912px) {
+    .BrandList img {
+        height: 84px;
+    }
+}
+
 @media only screen and (max-width: 820px) {
     .BrandList img {
         height: 75px;
@@ -10,7 +16,13 @@
 
 @media only screen and (max-width: 768px) {
     .BrandList img {
-        height: 90px;
+        height: 70px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .BrandList img {
+        height: 135px;
     }
 }
 
@@ -26,9 +38,15 @@
     }
 }
 
-@media only screen and (max-width: 390px) {
+/* @media only screen and (max-width: 390px) {
     .BrandList img {
         height: 95px;
+    }
+} */
+
+@media only screen and (max-width: 376px) {
+    .BrandList img {
+        height: 90px;
     }
 }
 

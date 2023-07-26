@@ -12,22 +12,7 @@
     display: none;
 }
 
-@media only screen and (max-width: 768px) {
-    .RecommendedItem img {
-        height: 300px;
-    }
-
-    #btnShowAllTop {
-        display: none;
-    }
-
-    #btnShowAllBottom {
-        display: block;
-        margin: 30px 0 50px 0;
-    }
-}
-
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 912px) {
     .RecommendedItem img {
         height: 350px;
     }
@@ -41,3 +26,21 @@
         margin: 30px 0 50px 0;
     }
 }
+
+/* @media only screen and (max-width: 820px) {
+    .RecommendedItem img {
+        height: 350px;
+    }
+} */
+
+/* @media only screen and (max-width: 768px) {
+    .RecommendedItem img {
+        height: 300px;
+    }
+} */
+
+/* @media only screen and (max-width: 414px) {
+    .RecommendedItem img {
+        height: 350px;
+    }
+} */

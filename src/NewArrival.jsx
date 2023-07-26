@@ -14,7 +14,7 @@ export default function NewArrival() {
                 New Arrival
             </Typography>
             <Grid container spacing={2} mt={2}>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} lg={3}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -39,7 +39,7 @@ export default function NewArrival() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} lg={3}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -64,7 +64,7 @@ export default function NewArrival() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} lg={3}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -89,7 +89,7 @@ export default function NewArrival() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} lg={3}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
