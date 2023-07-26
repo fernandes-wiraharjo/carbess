@@ -13,7 +13,7 @@ export default function BrandList() {
                 Cari Mobil Bekas Berdasarkan Merk
             </Typography>
             <Grid container spacing={2} mt={2}>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -32,7 +32,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -51,7 +51,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -70,7 +70,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -89,7 +89,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -108,7 +108,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -127,7 +127,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -146,7 +146,7 @@ export default function BrandList() {
                         </CardActionArea>
                     </Card>
                 </Grid>
-                <Grid item sm={4} md={1.5}>
+                <Grid item xs={4} md={1.5}>
                     <Card>
                         <CardActionArea>
                             <CardMedia

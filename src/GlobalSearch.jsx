@@ -93,7 +93,7 @@ export default function GlobalSearch() {
                 }}            
             >
                 <Grid container spacing={2} mb={2.5}>
-                    <Grid item sm={12} md={3}>
+                    <Grid item xs={12} md={3}>
                         <FormControl fullWidth size='small'>
                             <InputLabel id="lblBrand">Merek</InputLabel>
                             <Select
@@ -109,7 +109,7 @@ export default function GlobalSearch() {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item sm={12} md={3}>
+                    <Grid item xs={12} md={3}>
                         <FormControl fullWidth size="small">
                             <InputLabel id="lblModel">Model</InputLabel>
                             <Select
@@ -125,7 +125,7 @@ export default function GlobalSearch() {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item sm={12} md={3}>
+                    <Grid item xs={12} md={3}>
                         <FormControl fullWidth size="small">
                             <InputLabel id="lblPrice">Harga</InputLabel>
                             <Select
@@ -141,7 +141,7 @@ export default function GlobalSearch() {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item sm={12} md={3}>
+                    <Grid item xs={12} md={3}>
                         <Button variant="contained" fullWidth
                             sx={{ 
                                 backgroundColor: '#fe8104',
@@ -182,7 +182,7 @@ export default function GlobalSearch() {
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Grid container spacing={2}>
-                        <Grid item sm={6} md={6}>
+                        <Grid item xs={6} md={6}>
                             <FormControl fullWidth size='small'>
                                 <InputLabel id="lblBrand">Merek</InputLabel>
                                 <Select
@@ -198,7 +198,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={6} md={6}>
+                        <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblModel">Model</InputLabel>
                                 <Select
@@ -214,7 +214,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={12}>
+                        <Grid item xs={12}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblPrice">Harga</InputLabel>
                                 <Select
@@ -230,7 +230,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={12}>
+                        <Grid item xs={12}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblYear">Tahun</InputLabel>
                                 <Select
@@ -246,7 +246,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={12}>
+                        <Grid item xs={12}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblKilometer">Kilometer</InputLabel>
                                 <Select
@@ -262,7 +262,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={6} md={6}>
+                        <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblTransmition">Transmisi</InputLabel>
                                 <Select
@@ -278,7 +278,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={6} md={6}>
+                        <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblBodyType">Tipe Bodi</InputLabel>
                                 <Select
@@ -294,7 +294,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={12}>
+                        <Grid item xs={12}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblFuel">Bahan Bakar</InputLabel>
                                 <Select
@@ -310,7 +310,7 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item sm={12}>
+                        <Grid item xs={12}>
                             <FormControl fullWidth size="small">
                                 <InputLabel id="lblDriveWheelType">Tipe Roda Penggerak</InputLabel>
                                 <Select

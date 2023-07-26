@@ -85,7 +85,7 @@ export default function NavBar(props) {
         <AppBar color='primary'>
           {appBarLabel('Lihat Semua Mobil')}
         </AppBar>
-        <Toolbar id="back-to-top-anchor" sx={{ marginTop: '16px' }} />
+        <Toolbar id="back-to-top-anchor" />
         <ScrollTop {...props}>
           <Fab color="primary" size="small" aria-label="scroll back to top">
             <KeyboardArrowUpIcon />

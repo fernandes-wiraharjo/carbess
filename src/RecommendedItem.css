@@ -13,6 +13,25 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .RecommendedItem img {
+        height: 300px;
+    }
+
+    #btnShowAllTop {
+        display: none;
+    }
+
+    #btnShowAllBottom {
+        display: block;
+        margin: 30px 0 50px 0;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .RecommendedItem img {
+        height: 350px;
+    }
+
     #btnShowAllTop {
         display: none;
     }

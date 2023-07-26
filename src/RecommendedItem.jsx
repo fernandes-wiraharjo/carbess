@@ -19,11 +19,13 @@ export default function RecommendedItem() {
                     ':hover': {
                         backgroundColor: '#000',
                         opacity: '0.6'
-                      }
-                    }}>{`Tampilkan Semua Mobil >>`}</Button>
+                      },
+                    textTransform: 'none'
+                }}
+                >{`Tampilkan Semua Mobil >>`}</Button>
             </div>
             <Grid container spacing={2} mt={2}>
-                <Grid item sm={6} md={2.4}>
+                <Grid item xs={12} md={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -48,7 +50,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item sm={6} md={2.4}>
+                <Grid item xs={12} md={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -73,7 +75,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item sm={6} md={2.4}>
+                <Grid item xs={12} md={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -98,7 +100,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item sm={6} md={2.4}>
+                <Grid item xs={12} md={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -123,7 +125,7 @@ export default function RecommendedItem() {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item sm={6} md={2.4}>
+                <Grid item xs={12} md={2.4}>
                     <Card>
                         <CardActionArea>
                             <CardMedia
@@ -134,7 +136,7 @@ export default function RecommendedItem() {
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
-                                    Jazz rs 2011
+                                    Jazz rs 2011 white
                                 </Typography>
                                 <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
                                     Rp. 138.000.000
@@ -154,8 +156,10 @@ export default function RecommendedItem() {
                 ':hover': {
                     backgroundColor: '#000',
                     opacity: '0.6'
-                    }
-                }}>{`Tampilkan Semua Mobil >>`}</Button>
+                    },
+                textTransform: 'none'
+            }}
+            >{`Tampilkan Semua Mobil >>`}</Button>
         </section>
     );
 }

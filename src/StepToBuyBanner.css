@@ -321,6 +321,136 @@ a {
     text-shadow: 0 0 25px black;
 }
 
+@media only screen and (max-width: 820px) {
+    .article {
+        height: 520px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .contentHeader {    
+        font-size: 2em;
+        top: 8%;        
+    }
+    
+    .boxContent1 {    
+        font-size: 1em;
+        top: 40%;
+        width: 6%;
+    }
+    
+    .content1 {
+        top: 36%;
+        left: 10%;
+    }
+    
+    .subContent1 {
+        top: 45%;        
+        left: 10%;
+    }
+    
+    .boxContent2 {    
+        font-size: 1em;
+        top: 40%;
+        left: 50%;
+        width: 6%;
+    }
+    
+    .content2 {
+        top: 36%;
+        left: 58%;
+    }
+    
+    .subContent2 {
+        top: 45%;
+        left: 58%;
+    }
+    
+    .boxContent3 {    
+        font-size: 1em;
+        width: 6%;
+        top: 58%;
+        left: 2%;
+    }
+    
+    .content3 {
+        top: 53.5%;
+        left: 10%;
+    }
+    
+    .subContent3 {
+        top: 62%;
+        left: 10%;
+    }
+    
+    .line {
+        top: 76%;
+    }
+    
+    .btn {
+        width: 30%;
+        top: 85.5%;
+        padding: 13px;
+    }
+    
+    .brandIcon1 {
+        width: 8%;
+        top: 78.5%;
+        left: 62%;
+        height: 10%;
+    }
+    
+    .brandIcon2 {
+        width: 8%;
+        top: 78.5%;
+        left: 71%;
+        height: 10%;
+    }
+    
+    .brandIcon3 {
+        width: 8%;
+        top: 78.5%;
+        left: 80%;
+        height: 10%;
+    }
+    
+    .brandIcon4 {
+        width: 8%;
+        top: 78.5%;
+        left: 89%;
+        height: 10%;
+    }
+    
+    .brandIcon5 {
+        width: 8%;
+        top: 89.5%;
+        left: 62%;
+        height: 9.5%;
+    }
+    
+    .brandIcon6 {
+        width: 8%;
+        top: 89.5%;
+        left: 71%;
+        height: 9.5%;
+    }
+    
+    .brandIcon7 {
+        width: 8%;
+        top: 89.5%;
+        left: 80%;
+        height: 9.5%;
+    }
+    
+    .brandIcon8 {
+        width: 8%;
+        top: 89.5%;
+        left: 89%;
+        height: 9.5%;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .article {
         height: 520px;
@@ -419,7 +549,7 @@ a {
         width: 8%;
         top: 85.5%;
         left: 89%;
-        height: 7%;
+        height: fit-content;
     }
     
     .brandIcon5 {
@@ -448,5 +578,13 @@ a {
         top: 93.5%;
         left: 89%;
         height: 6%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .btn {
+        width: 30%;
+        top: 88%;
+        padding: 10px;
     }
 }

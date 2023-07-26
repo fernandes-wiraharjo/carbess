@@ -11,3 +11,13 @@
     will-change: filter;
     transition: filter 300ms;
 }
+
+#back-to-top-anchor {
+    margin-top: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    #back-to-top-anchor {
+        margin-top: 24px;
+    }
+}
