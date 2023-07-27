@@ -1089,10 +1089,87 @@ a {
         left: 24%;
         top: 51%;
     }
+
+    .boxContent3 {
+        top: 60%;
+        width: 20%;
+    }
+
+    .content3 {
+        font-size: 13px;
+        left: 24%;
+        top: 57%;
+    }
+
+    .subContent3 {
+        font-size: 10px;
+        left: 24%;
+        top: 64%;
+    }
+
+    .line {
+        top: 86%;
+    }
     
     .btn {
-        width: 30%;
-        top: 88%;
-        padding: 10px;
+        width: 35%;
+        top: 90%;
+        padding: 5px;
+    }
+
+    .brandIcon1 {
+        top: 88.5%;
+        left: 62%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon2 {
+        top: 88.5%;
+        left: 71%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon3 {
+        top: 88.5%;
+        left: 80%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon4 {
+        top: 88.5%;
+        left: 89%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon5 {
+        top: 94.5%;
+        left: 62%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon6 {
+        top: 94.5%;
+        left: 71%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon7 {
+        top: 94.5%;
+        left: 80%;
+        height: 5%;
+        padding-top: 1px;
+    }
+    
+    .brandIcon8 {
+        top: 94.5%;
+        left: 89%;
+        height: 5%;
+        padding-top: 1px;
     }
 }

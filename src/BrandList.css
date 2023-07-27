@@ -2,6 +2,12 @@
     margin: 60px 0 50px 0;
 }
 
+@media only screen and (max-width: 1024px) {
+    .BrandList img {
+        height: 95px;
+    }
+}
+
 @media only screen and (max-width: 912px) {
     .BrandList img {
         height: 84px;
@@ -53,5 +59,11 @@
 @media only screen and (max-width: 360px) {
     .BrandList img {
         height: 88px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .BrandList img {
+        height: 66px;
     }
 }
