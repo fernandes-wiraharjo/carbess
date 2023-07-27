@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -16,22 +17,24 @@ export default function NewArrival() {
             <Grid container spacing={2} mt={2}>
                 <Grid item xs={12} sm={6} lg={3}>
                     <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="250"
-                                image="/images/new_arrivals/1.jpg"
-                                alt="new arrival item 1"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
-                                    Xpander Ultimate 2018
-                                </Typography>
-                                <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
-                                    Rp. 225.000.000
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
+                        <NavLink to="/car-detail">
+                            <CardActionArea>
+                                <CardMedia
+                                    component="img"
+                                    height="250"
+                                    image="/images/new_arrivals/1.jpg"
+                                    alt="new arrival item 1"
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold' }} component="div">
+                                        Xpander Ultimate 2018
+                                    </Typography>
+                                    <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+                                        Rp. 225.000.000
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </NavLink>
                         <CardActions>
                             <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
                                 <WhatsAppIcon />

@@ -1,36 +1,19 @@
 import './App.css';
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import { responsiveFonts } from './Theme';
-import Container from '@mui/material/Container';
-import NavBar from './NavBar';
-import GlobalSearch from './GlobalSearch';
-import NewArrival from './NewArrival';
-import ReactCarousel from './ReactCarousel';
-import RecommendedItem from './RecommendedItem';
-import StepToBuyBanner from './StepToBuyBanner';
-import BrandList from './BrandList';
-import PopularSearches from './PopularSearches';
-import Footer from './Footer';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Home from "./components/Home";
+import CarDetail from "./components/CarDetail";
+import CarList from "./components/CarList";
 
 function App() {
   return (   
-    <div className='App'>
-      <CssBaseline />
-      <NavBar />
-        <ReactCarousel />
-        <Container maxWidth='lg'>
-          <ThemeProvider theme={responsiveFonts}>
-            <GlobalSearch />
-            <NewArrival />
-            <RecommendedItem />
-            <StepToBuyBanner />
-            <BrandList />
-            <PopularSearches />
-          </ThemeProvider>
-        </Container>
-      <Footer />
-    </div>
+    <>      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/car-detail" element={<CarDetail />} />
+        <Route path="/car-list" element={<CarList />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   )
 }
 
