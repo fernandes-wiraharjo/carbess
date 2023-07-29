@@ -1,0 +1,10 @@
+.ProductImages {
+    background-color: #f7f8fa;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .ProductImages {
+        margin-top: 60px;
+    }
+}

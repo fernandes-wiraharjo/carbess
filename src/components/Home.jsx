@@ -18,6 +18,7 @@ function Home() {
     <div className='App'>
       <CssBaseline />
       <NavBar />
+      <main>
         <ReactCarousel />
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
@@ -29,6 +30,7 @@ function Home() {
             <PopularSearches />
           </ThemeProvider>
         </Container>
+      </main>
       <Footer />
     </div>
   )
