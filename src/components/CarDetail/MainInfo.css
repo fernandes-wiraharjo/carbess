@@ -18,3 +18,19 @@
         float: left;
     }
 }
+
+@media only screen and (max-width: 360px) {
+    .MainInfo .specCard {
+        width: 105px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .MainInfo #btnCopyLink, #btnWA {
+        width: 50%;
+    }
+
+    .MainInfo .specGrid {
+        max-width: 50%;
+    }
+}

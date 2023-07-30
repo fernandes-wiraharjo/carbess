@@ -3,6 +3,11 @@ import Typography from '@mui/material/Typography';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import SpeedIcon from '@mui/icons-material/Speed';
+import BrushIcon from '@mui/icons-material/Brush';
+import IronIcon from '@mui/icons-material/Iron';
+import PermDataSettingIcon from '@mui/icons-material/PermDataSetting';
+import EventSeatIcon from '@mui/icons-material/EventSeat';
 import ProductImages from './ProductImages';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -38,12 +43,12 @@ export default function MainInfo() {
                 Rp. 225.000.000
             </Typography>
             <Grid container spacing={2} mt={1}>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
                             <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Tahun
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
                                 2018
@@ -51,67 +56,67 @@ export default function MainInfo() {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
-                            <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
+                            <SpeedIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Kilometer
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                42.789 km
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
-                            <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
+                            <BrushIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Warna
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                Silver
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
-                            <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
+                            <IronIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Mesin
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                2494 cc
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
-                            <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
+                            <PermDataSettingIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Transmisi
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                Automatic
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4} sm={4} lg={2}>
-                    <Card sx={{ backgroundColor: '#f7f8fa' }}>
+                <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
+                    <Card sx={{ backgroundColor: '#f7f8fa' }} className='specCard'>
                         <CardContent>
-                            <CalendarMonthIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
+                            <EventSeatIcon sx={{ color: "#576a7f", fontSize: 'large' }} />
                             <Typography gutterBottom variant="body2" color="#8a9bad" component="div">
-                                Tahun Kendaraan
+                                Penumpang
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                7
                             </Typography>
                         </CardContent>
                     </Card>
