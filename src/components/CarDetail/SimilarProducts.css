@@ -1,0 +1,9 @@
+.SimilarProducts a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 912px) {
+    .SimilarProducts img {
+        height: 350px;
+    }
+}
