@@ -1,0 +1,11 @@
+.sticky_cont {
+    height: 1000px;
+    width: 300px;
+    border: 1px solid red;
+}
+
+.sticky__container__styles {
+    height: 100%;
+    border: 1px solid green;
+    overflow-y: auto;
+}

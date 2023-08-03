@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  body, html {
+    padding: 5px;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  .inner {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  
+  .columns {
+    flex-direction: column;
+  }
+  
+  @media(min-width: 670px) {
+    .columns {
+      flex-direction: row;
+    }
+  }
+  

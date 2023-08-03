@@ -19,9 +19,9 @@ function CarDetail() {
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
             <MainInfo />
-            </ThemeProvider>
+          </ThemeProvider>
         </Container>
-            <Note />
+          <Note />
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
             <SimilarProducts />

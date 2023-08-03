@@ -1,0 +1,23 @@
+.column__left,
+.column__right {  
+  margin-top: 10px;
+  display: flex;
+  flex-basis: auto;
+/*   border: 1px solid red; */
+}
+
+.column__right {
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+@media(min-width: 670px) {
+  .column__left {
+    flex-direction: column;
+    width: 210px;
+    min-width: 210px;
+  }
+  .column__right {
+    margin-left: 20px;
+  }
+}

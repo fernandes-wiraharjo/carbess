@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -64,7 +65,7 @@ function appBarLabel(label) {
       <div>
         <a href="/"><img src={carbessLogo} alt="Carbess logo" /></a>
       </div>
-      <Button color='inherit' sx={{ textTransform: 'none' }}>{label}</Button>
+      <Button color='inherit' onClick={routeChange} sx={{ textTransform: 'none' }}>{label}</Button>
     </Toolbar>
   );
 };
@@ -79,11 +80,22 @@ const darkTheme = createTheme({
 });
 
 export default function NavBar(props) {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/car-list`; 
+    navigate(path);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={darkTheme}>
         <AppBar color='primary'>
-          {appBarLabel('Lihat Semua Mobil')}
+          <Toolbar className='Navbar'>
+            <div>
+              <a href="/"><img src={carbessLogo} alt="Carbess logo" /></a>
+            </div>
+            <Button color='inherit' onClick={routeChange} sx={{ textTransform: 'none' }}>Lihat Semua Mobil</Button>
+          </Toolbar>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />
         <ScrollTop {...props}>
