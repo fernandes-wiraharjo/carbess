@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { SlBrand, SlModel, SlPrice } from './components/Inputs/Selects';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
@@ -94,52 +95,13 @@ export default function GlobalSearch() {
             >
                 <Grid container spacing={2} mb={2.5}>
                     <Grid item xs={12} md={3}>
-                        <FormControl fullWidth size='small'>
-                            <InputLabel id="lblBrand">Merek</InputLabel>
-                            <Select
-                                labelId="lblBrand"
-                                id="slBrand"
-                                value={age}
-                                label="Merek"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <SlBrand />
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        <FormControl fullWidth size="small">
-                            <InputLabel id="lblModel">Model</InputLabel>
-                            <Select
-                                labelId="lblModel"
-                                id="slModel"
-                                value={age}
-                                label="Model"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <SlModel />
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        <FormControl fullWidth size="small">
-                            <InputLabel id="lblPrice">Harga</InputLabel>
-                            <Select
-                                labelId="lblPrice"
-                                id="slPrice"
-                                value={age}
-                                label="Harga"
-                                onChange={handleChange}
-                            >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <SlPrice />
                     </Grid>
                     <Grid item xs={12} md={3}>
                         <Button variant="contained" fullWidth

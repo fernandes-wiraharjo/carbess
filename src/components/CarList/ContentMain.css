@@ -1,0 +1,11 @@
+.ContentMain hr {
+    margin: 50px 0 -20px 0;
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+    /* border-top: 1px solid var(--NN100,#E4EBF5); */
+}
+
+@media only screen and (max-width: 768px) {
+    .ContentMain hr {
+        display: none;
+    }
+}

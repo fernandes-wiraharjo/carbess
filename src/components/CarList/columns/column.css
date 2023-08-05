@@ -11,6 +11,10 @@
   flex-grow: 1;
 }
 
+.column__left {
+  height: 1160px;
+}
+
 @media(min-width: 670px) {
   .column__left {
     flex-direction: column;
