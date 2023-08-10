@@ -25,3 +25,13 @@
     margin-left: 20px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .column__right {
+    margin-top: 30px;
+  }
+
+  .column__left {
+    display: none;
+  }
+}

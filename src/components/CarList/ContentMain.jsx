@@ -3,6 +3,7 @@ import { LeftColumn, RightColumn } from './columns/column.jsx';
 import Filter from './filter/filter';
 import { SlSort } from '../Inputs/Selects';
 import ListItem from './ListItem';
+import CarListPaging from '../Others/Paging';
 import './ContentMain.css';
 
 export default function ContentMain() {
@@ -14,10 +15,11 @@ export default function ContentMain() {
                 </LeftColumn>
                 <RightColumn>
                     <div id="header">
-                        <b>Cari Mobil Bekas Pontianak (4.216 unit)</b>
+                        <div id="lblTitle"><b>Cari Mobil Bekas Pontianak (4.216 unit)</b></div>
                         <SlSort />
                     </div>
                     <ListItem />
+                    <CarListPaging />
                 </RightColumn>
             </Wrapper>
             <hr />

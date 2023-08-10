@@ -8,4 +8,18 @@
     .ContentMain hr {
         display: none;
     }
+
+    .ContentMain #header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ContentMain #lblTitle {
+        margin-bottom: 10px;
+    }
+
+    #btnFilter {
+        display: block;
+    }
 }

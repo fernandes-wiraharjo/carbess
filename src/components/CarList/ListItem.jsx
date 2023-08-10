@@ -20,7 +20,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -69,7 +69,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -118,7 +118,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -167,7 +167,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -216,7 +216,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -265,7 +265,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -314,7 +314,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -363,7 +363,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -412,7 +412,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>
@@ -461,7 +461,7 @@ export default function ListItem() {
                                 <CardMedia
                                     component="img"
                                     image="https://res.cloudinary.com/de7hcol74/image/upload/v1691211190/carbess/1_vjrd86.jpg"
-                                    alt="recommended item 1"
+                                    alt="car list 1"
                                     sx={{ borderRadius: '5px' }}
                                 />
                             </CardActionArea>

@@ -1,4 +1,4 @@
-import { SlBrand, SlModel, SlYear, SlKilometer, SlTransmition, SlBodyType,
+import { SlBrand, SlModel, SlPrice, SlYear, SlKilometer, SlTransmition, SlBodyType,
   SlColor, SlFuel, SlDriveWheelType } from '../../Inputs/Selects';
 import Range from './../input-range/range';
 import './filter.css';
@@ -15,8 +15,11 @@ export default () => (
     <div className="filter__row">
       <ModelFilter />
     </div>
+    {/* <div className="filter__row">
+    	<RangeFilter /> //price
+    </div> */}
     <div className="filter__row">
-    	<RangeFilter /> {/* price */}
+      <PriceFilter />
     </div>
     <div className="filter__row">
       <YearFilter />
@@ -98,6 +101,21 @@ const ModelFilter = () => (
     </label>
     <div className="container">
       <SlModel />
+    </div>
+  </div>
+);
+
+const PriceFilter = () => (
+  <div className="filter__item">
+    <input id="price" className="keybig" type="checkbox" defaultChecked />
+    <label htmlFor="price" className="label">
+      Harga
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+    </label>
+    <div className="container">
+      <SlPrice />
     </div>
   </div>
 );

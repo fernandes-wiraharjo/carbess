@@ -80,11 +80,11 @@ const darkTheme = createTheme({
 });
 
 export default function NavBar(props) {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/car-list`; 
-    navigate(path);
-  }
+  // let navigate = useNavigate(); 
+  // const routeChange = () =>{ 
+  //   let path = `/car-list`; 
+  //   navigate(path);
+  // }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -94,7 +94,8 @@ export default function NavBar(props) {
             <div>
               <a href="/"><img src={carbessLogo} alt="Carbess logo" /></a>
             </div>
-            <Button color='inherit' onClick={routeChange} sx={{ textTransform: 'none' }}>Lihat Semua Mobil</Button>
+            {/* <Button color='inherit' onClick={routeChange} sx={{ textTransform: 'none' }}>Lihat Semua Mobil</Button> */}
+            <a href="/car-list"><Button sx={{ textTransform: 'none', color: '#fff' }}>Lihat Semua Mobil</Button></a>
           </Toolbar>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />
