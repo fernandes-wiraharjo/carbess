@@ -1,23 +1,22 @@
 import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import { SlBrand, SlModel, SlPrice } from './components/Inputs/Selects';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
 import { styled, useTheme } from '@mui/material/styles';
+import { Button } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
+import PropTypes from 'prop-types';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Grid from '@mui/material/Grid';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import './GlobalSearch.css';
+import TextField from '@mui/material/TextField';
+import './Header.css';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -27,10 +26,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
         padding: theme.spacing(1),
     },
 }));
-
+  
 function BootstrapDialogTitle(props) {
     const { children, onClose, ...other } = props;
-
+  
     return (
         <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
             {children}
@@ -57,7 +56,7 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-export default function GlobalSearch() {
+export default function CarListHeader() {    
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -67,68 +66,45 @@ export default function GlobalSearch() {
     const handleChange = (event) => {
         setAge(event.target.value);
     };
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    
+    const openFilter = () => setOpen(true);
+    const closeFilter = () => setOpen(false);
+    const resetFilter = () => setAge('');    
+
     return (
-        <section className='GlobalSearch'>
-            <Box
-                sx={{
-                    width: '100%',
-                    height: 40,
-                    backgroundColor: 'primary.dark',
-                    borderRadius: '5px 5px 0 0'
-                }}            
-            >
-                <Typography variant="body2" sx={{ color: '#fff', fontWeight: 'bold', padding: '10px' }}>
-                    Cari Mobil
-                </Typography>
-            </Box>
-            <Box
-                sx={{
-                    width: '100%',
-                    height: 'auto',
-                    backgroundColor: '#f7f8fa',
-                    borderRadius: '0 0 5px 5px',
-                    padding: '15px'
-                }}            
-            >
-                <Grid container spacing={2} mb={2.5}>
-                    <Grid item xs={12} md={3}>
-                        <SlBrand />
-                    </Grid>
-                    <Grid item xs={12} md={3}>
-                        <SlModel />
-                    </Grid>
-                    <Grid item xs={12} md={3}>
-                        <SlPrice />
-                    </Grid>
-                    <Grid item xs={12} md={3}>
-                        <Button variant="contained" fullWidth
-                            sx={{ 
-                                backgroundColor: '#fe8104',
-                                ':hover': {
-                                    backgroundColor: '#fe8104',
-                                    opacity: '0.9'
-                                },
-                                textTransform: 'none'
-                            }}>
-                                Cari
-                        </Button>
-                    </Grid>
-                </Grid>
-                <Typography variant="subtitle2" color="primary" onClick={handleOpen}
-                    sx={{  
-                        textAlign: 'center', 
-                        marginBottom: '5px',
-                        cursor: 'pointer'
-                    }}>
-                    {`Pencarian lebih lanjut >>`}
-                </Typography>
-            </Box>
+        <section className='CarListHeader'>
+            <div id="header">
+                <a href="/">
+                <Button variant="contained" size="small" sx={{ 
+                        backgroundColor: '#000',
+                        ':hover': {
+                            backgroundColor: '#000',
+                            opacity: '0.6'
+                        },
+                        textTransform: 'none',
+                        marginTop: '20px'
+                    }}
+                >
+                    {`Beranda`}
+                </Button>
+                </a>
+                <Button id="btnFilter" variant="contained" size="small" sx={{ 
+                    backgroundColor: '#000',
+                    ':hover': {
+                        backgroundColor: '#000',
+                        opacity: '0.6'
+                    },
+                    textTransform: 'none',
+                    marginTop: '20px',
+                    display: 'none'
+                }}
+                onClick={openFilter}
+                >
+                {`Filter`}
+                </Button>
+            </div>
             <BootstrapDialog
                 fullScreen={fullScreen}
-                onClose={handleClose}
+                onClose={closeFilter}
                 aria-labelledby="global-search-dialog"
                 open={open}
                 fullWidth={true}
@@ -136,17 +112,22 @@ export default function GlobalSearch() {
             >
                 <BootstrapDialogTitle 
                     id="global-search-dialog"
-                    onClose={handleClose} 
+                    onClose={closeFilter} 
                     backgroundColor='primary.dark'
                     color='#fff'
                 >
-                    <Typography variant="subtitle2">Pencarian lebih lanjut</Typography>
+                    Filter
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <FormControl fullWidth>
+                                <TextField id="txtKeyword" label="Kata Kunci" variant="outlined" size="small" />
+                            </FormControl>
+                        </Grid>
                         <Grid item xs={6} md={6}>
                             <FormControl fullWidth size='small'>
-                                <InputLabel id="lblBrand"><Typography variant="subtitle2">Merek</Typography></InputLabel>
+                                <InputLabel id="lblBrand">Merek</InputLabel>
                                 <Select
                                     labelId="lblBrand"
                                     id="slBrand"
@@ -162,7 +143,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblModel"><Typography variant="subtitle2">Model</Typography></InputLabel>
+                                <InputLabel id="lblModel">Model</InputLabel>
                                 <Select
                                     labelId="lblModel"
                                     id="slModel"
@@ -178,7 +159,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblPrice"><Typography variant="subtitle2">Harga</Typography></InputLabel>
+                                <InputLabel id="lblPrice">Harga</InputLabel>
                                 <Select
                                     labelId="lblPrice"
                                     id="slPrice"
@@ -194,7 +175,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblYear"><Typography variant="subtitle2">Tahun</Typography></InputLabel>
+                                <InputLabel id="lblYear">Tahun</InputLabel>
                                 <Select
                                     labelId="lblYear"
                                     id="slYear"
@@ -210,7 +191,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblKilometer"><Typography variant="subtitle2">Kilometer</Typography></InputLabel>
+                                <InputLabel id="lblKilometer">Kilometer</InputLabel>
                                 <Select
                                     labelId="lblKilometer"
                                     id="slKilometer"
@@ -226,7 +207,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblTransmition"><Typography variant="subtitle2">Transmisi</Typography></InputLabel>
+                                <InputLabel id="lblTransmition">Transmisi</InputLabel>
                                 <Select
                                     labelId="lblTransmition"
                                     id="slTransmition"
@@ -242,7 +223,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={6} md={6}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblBodyType"><Typography variant="subtitle2">Tipe Bodi</Typography></InputLabel>
+                                <InputLabel id="lblBodyType">Tipe Bodi</InputLabel>
                                 <Select
                                     labelId="lblBodyType"
                                     id="slBodyType"
@@ -258,7 +239,23 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblFuel"><Typography variant="subtitle2">Bahan Bakar</Typography></InputLabel>
+                                <InputLabel id="lblColor">Warna</InputLabel>
+                                <Select
+                                    labelId="lblColor"
+                                    id="slColor"
+                                    value={age}
+                                    label="Warna"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControl fullWidth size="small">
+                                <InputLabel id="lblFuel">Bahan Bakar</InputLabel>
                                 <Select
                                     labelId="lblFuel"
                                     id="slFuel"
@@ -274,7 +271,7 @@ export default function GlobalSearch() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblDriveWheelType"><Typography variant="subtitle2">Tipe Roda Penggerak</Typography></InputLabel>
+                                <InputLabel id="lblDriveWheelType">Tipe Roda Penggerak</InputLabel>
                                 <Select
                                     labelId="lblDriveWheelType"
                                     id="slDriveWheelType"
@@ -291,7 +288,10 @@ export default function GlobalSearch() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
+                    <Button onClick={resetFilter}>
+                        Atur Ulang
+                    </Button>
+                    <Button autoFocus onClick={closeFilter}>
                         Cari
                     </Button>
                 </DialogActions>

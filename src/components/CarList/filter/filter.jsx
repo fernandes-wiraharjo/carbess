@@ -7,6 +7,9 @@ import './filter.css';
 export default () => (  
   <div className="filter__container">
     <div className="filter__row">
+      <a href="/car-list">Atur Ulang</a>
+    </div>
+    <div className="filter__row">
     	<KeywordFilter />
     </div>
     <div className="filter__row">

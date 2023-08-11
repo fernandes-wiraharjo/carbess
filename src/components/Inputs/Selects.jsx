@@ -277,9 +277,10 @@ export function SlSort() {
                 label="Urut Berdasarkan"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>Harga Rendah ke Tinggi</MenuItem>
-                <MenuItem value={2}>Harga Tinggi ke Rendah</MenuItem>
-                <MenuItem value={3}>Update Terakhir</MenuItem>
+                <MenuItem value={1}>Terbaru ke Terlama</MenuItem>
+                <MenuItem value={2}>Terlama ke Terbaru</MenuItem>
+                <MenuItem value={3}>Harga Rendah ke Tinggi</MenuItem>
+                <MenuItem value={4}>Harga Tinggi ke Rendah</MenuItem>
             </Select>
         </FormControl>
     );
