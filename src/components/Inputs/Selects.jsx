@@ -126,11 +126,11 @@ export function SlKilometer() {
                 label="Kilometer"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>5000-10000</MenuItem>
-                <MenuItem value={2}>10000-15000</MenuItem>
-                <MenuItem value={3}>15000-20000</MenuItem>
-                <MenuItem value={4}>20000-25000</MenuItem>
-                <MenuItem value={5}>25000-30000</MenuItem>
+                <MenuItem value={1}>5K-10K</MenuItem>
+                <MenuItem value={2}>10K-15K</MenuItem>
+                <MenuItem value={3}>15K-20K</MenuItem>
+                <MenuItem value={4}>20K-25K</MenuItem>
+                <MenuItem value={5}>25K-30K</MenuItem>
             </Select>
         </FormControl>
     );

@@ -14,8 +14,8 @@ export default function ListItem() {
         <Grid container spacing={2.5} mt={1} className='ListItem'>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -25,7 +25,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -40,31 +40,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -74,7 +80,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -89,31 +95,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -123,7 +135,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -138,31 +150,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -172,7 +190,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -187,31 +205,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -221,7 +245,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -236,31 +260,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -270,7 +300,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -285,31 +315,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -319,7 +355,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -334,31 +370,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -368,7 +410,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -383,31 +425,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -417,7 +465,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -432,31 +480,37 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card>
-                    <Grid container p={2} spacing={2}>
-                        <Grid item xs={4}>
+                    <Grid container p={2} spacing={1}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -466,7 +520,7 @@ export default function ListItem() {
                                 />
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom color="primary" sx={{ fontWeight: 'bold', fontSize: '16px' }} component="div">
@@ -481,23 +535,29 @@ export default function ListItem() {
                                 </CardContent>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={4}>
-                            <p>
-                                <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    20-25K KM
-                                </Typography>
-                                <br/>
-                                <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
-                                <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                    Automatic
-                                </Typography>
-                            </p>
-                            <CardActions>
-                                <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                    <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
-                                </Button>
-                            </CardActions>
+                        <Grid item xs={12} md={12} lg={4}>
+                            <Grid container pt={2} spacing={1}>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <div className="dvInfo">
+                                        <SpeedIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            20-25K KM
+                                        </Typography>
+                                        <br/>
+                                        <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
+                                        <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
+                                            Automatic
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm={6} lg={12}>
+                                    <CardActions>
+                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                            <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
+                                        </Button>
+                                    </CardActions>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Card>

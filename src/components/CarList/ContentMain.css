@@ -4,7 +4,7 @@
     /* border-top: 1px solid var(--NN100,#E4EBF5); */
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     .ContentMain hr {
         display: none;
     }
