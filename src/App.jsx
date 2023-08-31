@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from "./components/Home";
 import CarDetail from "./components/CarDetail";
 import CarList from "./components/CarList";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./components/Others/ScrollToTop";
 
 function App() {
   return (   

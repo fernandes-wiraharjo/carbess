@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import { responsiveFonts } from '../../Theme';
+import { responsiveFonts } from '../Others/Theme';
 import Container from '@mui/material/Container';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';

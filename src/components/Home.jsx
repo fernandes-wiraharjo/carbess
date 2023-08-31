@@ -1,17 +1,17 @@
 import '../App.css';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { responsiveFonts } from '../Theme';
+import { responsiveFonts } from './Others/Theme';
 import Container from '@mui/material/Container';
-import NavBar from '../NavBar';
-import GlobalSearch from '../GlobalSearch';
-import NewArrival from '../NewArrival';
-import ReactCarousel from '../ReactCarousel';
-import RecommendedItem from '../RecommendedItem';
-import StepToBuyBanner from '../StepToBuyBanner';
-import BrandList from '../BrandList';
-import PopularSearches from '../PopularSearches';
-import Footer from '../Footer';
+import NavBar from './Others/NavBar';
+import GlobalSearch from './Home/GlobalSearch';
+import NewArrival from './Home/NewArrival';
+import ReactCarousel from './Home/ReactCarousel';
+import RecommendedItem from './Home/RecommendedItem';
+import StepToBuyBanner from './Home/StepToBuyBanner';
+import BrandList from './Home/BrandList';
+import PopularSearches from './Others/PopularSearches';
+import Footer from './Others/Footer';
 
 function Home() {
   return (   
