@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,164 +8,54 @@ import Typography from '@mui/material/Typography';
 import './BrandList.css';
 
 export default function BrandList() {
+    const [brand, setBrand] = useState([]);
+
+    useEffect(() => {
+        brands()
+    }, []);
+
+    const brands = async () => {
+        const api_url = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${api_url}/brands/home-list`);
+        setBrand(await response.json());
+    };
+
     return (
         <section className='BrandList'>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
                 Cari Mobil Bekas Berdasarkan Merk
             </Typography>
             <Grid container spacing={2} mt={2}>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/honda.png"
-                                alt="cari berdasarkan merk honda"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Honda
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/daihatsu.png"
-                                alt="cari berdasarkan merk daihatsu"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Daihatsu
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/toyota.png"
-                                alt="cari berdasarkan merk toyota"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Toyota
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/nissan.png"
-                                alt="cari berdasarkan merk nissan"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Nissan
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/dfsk.png"
-                                alt="cari berdasarkan merk dfsk"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Dfsk
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/mitsubishi.png"
-                                alt="cari berdasarkan merk mitsubishi"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Mitsubishi
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/suzuki.png"
-                                alt="cari berdasarkan merk suzuki"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Suzuki
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={4} md={1.5} lg={1.5}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="110"
-                                image="/icon/wuling.png"
-                                alt="cari berdasarkan merk wuling"
-                                sx={{ padding: '20px' }}
-                            />
-                            <hr/>
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
-                                    Wuling
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
+                {brand.length > 0 ? 
+                    brand.map((data) => {
+                        return (
+                            <Grid item xs={4} md={1.5} lg={1.5} key={data._id}>
+                                <Card>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            height="110"
+                                            image={ data.logo }
+                                            alt={`cari berdasarkan merk ${data.name}`}
+                                            sx={{ padding: '20px' }}
+                                        />
+                                        <hr/>
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h7" sx={{ fontWeight: 'bold', opacity: '0.7', textAlign: 'center' }} component="div">
+                                                { data.name }
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                        )
+                    }) :
+                    <Grid item xs={12} sx={{ textAlign: 'center' }}>
+                        <Typography variant="h7" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+                            NO DATA AVAILABLE
+                        </Typography>
+                    </Grid>
+                }
             </Grid>
         </section>
     );

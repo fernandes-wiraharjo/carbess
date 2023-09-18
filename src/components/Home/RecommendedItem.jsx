@@ -16,7 +16,8 @@ export default function RecommendedItem() {
     }, []);
 
     const cars = async () => {
-        const response = await fetch('http://localhost:3000/cars/recommended-item');
+        const api_url = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${api_url}/cars/recommended-item`);
         setCar(await response.json());
     };
 

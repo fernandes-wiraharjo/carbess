@@ -17,7 +17,8 @@ export default function NewArrival() {
     }, []);
 
     const cars = async () => {
-        const response = await fetch('http://localhost:3000/cars/new-arrival');
+        const api_url = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${api_url}/cars/new-arrival`);
         setCar(await response.json());
     };
 
