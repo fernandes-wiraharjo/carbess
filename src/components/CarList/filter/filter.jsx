@@ -1,4 +1,4 @@
-import { SlBrand, SlModel, SlPrice, SlYear, SlKilometer, SlTransmition, SlBodyType,
+import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYear, SlKilometer, SlTransmition, SlBodyType,
   SlColor, SlFuel, SlDriveWheelType } from '../../Inputs/Selects';
 import Range from './../input-range/range';
 import './filter.css';
@@ -118,7 +118,10 @@ const PriceFilter = () => (
     </svg>
     </label>
     <div className="container">
-      <SlPrice />
+      <SlPriceStart />
+    </div>
+    <div className="container">
+      <SlPriceEnd />
     </div>
   </div>
 );

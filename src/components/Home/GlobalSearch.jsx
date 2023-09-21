@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import { SlBrand, SlModel, SlPrice } from '../Inputs/Selects';
+import { SlBrand, SlModel, SlPriceStart, SlPriceEnd } from '../Inputs/Selects';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
@@ -100,8 +100,11 @@ export default function GlobalSearch() {
                     <Grid item xs={12} md={3}>
                         <SlModel />
                     </Grid>
-                    <Grid item xs={12} md={3}>
-                        <SlPrice />
+                    <Grid item xs={6} md={1.5}>
+                        <SlPriceStart />
+                    </Grid>
+                    <Grid item xs={6} md={1.5}>
+                        <SlPriceEnd />
                     </Grid>
                     <Grid item xs={12} md={3}>
                         <Button variant="contained" fullWidth
@@ -139,8 +142,9 @@ export default function GlobalSearch() {
                     onClose={handleClose} 
                     backgroundColor='primary.dark'
                     color='#fff'
+                    variant="subtitle2"
                 >
-                    <Typography variant="subtitle2">Pencarian lebih lanjut</Typography>
+                    Pencarian lebih lanjut
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Grid container spacing={2}>
@@ -176,14 +180,30 @@ export default function GlobalSearch() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblPrice"><Typography variant="subtitle2">Harga</Typography></InputLabel>
+                                <InputLabel id="lblPriceStart"><Typography variant="subtitle2">Harga Awal</Typography></InputLabel>
                                 <Select
-                                    labelId="lblPrice"
-                                    id="slPrice"
+                                    labelId="lblPriceStart"
+                                    id="slPriceStart"
                                     value={age}
-                                    label="Harga"
+                                    label="Harga Awal"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <FormControl fullWidth size="small">
+                                <InputLabel id="lblPriceEnd"><Typography variant="subtitle2">Harga Akhir</Typography></InputLabel>
+                                <Select
+                                    labelId="lblPriceEnd"
+                                    id="slPriceEnd"
+                                    value={age}
+                                    label="Harga Akhir"
                                     onChange={handleChange}
                                 >
                                     <MenuItem value={10}>Ten</MenuItem>

@@ -55,7 +55,7 @@ export function SlModel() {
     );
 }
 
-export function SlPrice() {
+export function SlPriceStart() {
     const [price, setPrice] = useState('');
 
     const handleChange = (event) => {
@@ -64,19 +64,58 @@ export function SlPrice() {
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblPrice">Harga</InputLabel>
+            <InputLabel id="lblPrice">Harga Awal</InputLabel>
             <Select
                 labelId="lblPrice"
                 id="slPrice"
                 value={price}
-                label="Harga"
+                label="Harga Awal"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>0-100 Jt</MenuItem>
-                <MenuItem value={2}>100 Jt - 200 Jt</MenuItem>
-                <MenuItem value={3}>200 Jt - 300 Jt</MenuItem>
-                <MenuItem value={4}>300 Jt - 400 Jt</MenuItem>
-                <MenuItem value={5}>400 Jt - 500 Jt</MenuItem>
+                <MenuItem value={25}>25 Juta</MenuItem>
+                <MenuItem value={50}>50 Juta</MenuItem>
+                <MenuItem value={100}>100 Juta</MenuItem>
+                <MenuItem value={150}>150 Juta</MenuItem>
+                <MenuItem value={200}>200 Juta</MenuItem>
+                <MenuItem value={250}>250 Juta</MenuItem>
+                <MenuItem value={300}>300 Juta</MenuItem>
+                <MenuItem value={350}>350 Juta</MenuItem>
+                <MenuItem value={400}>400 Juta</MenuItem>
+                <MenuItem value={450}>450 Juta</MenuItem>
+                <MenuItem value={500}>500 Juta</MenuItem>
+            </Select>
+        </FormControl>
+    );
+}
+
+export function SlPriceEnd() {
+    const [priceEnd, setPriceEnd] = useState('');
+
+    const handleChange = (event) => {
+        setPriceEnd(event.target.value);
+    };
+
+    return (
+        <FormControl fullWidth size="small">
+            <InputLabel id="lblPriceEnd">Harga Akhir</InputLabel>
+            <Select
+                labelId="lblPriceEnd"
+                id="slPriceEnd"
+                value={priceEnd}
+                label="Harga Akhir"
+                onChange={handleChange}
+            >
+                <MenuItem value={25}>25 Juta</MenuItem>
+                <MenuItem value={50}>50 Juta</MenuItem>
+                <MenuItem value={100}>100 Juta</MenuItem>
+                <MenuItem value={150}>150 Juta</MenuItem>
+                <MenuItem value={200}>200 Juta</MenuItem>
+                <MenuItem value={250}>250 Juta</MenuItem>
+                <MenuItem value={300}>300 Juta</MenuItem>
+                <MenuItem value={350}>350 Juta</MenuItem>
+                <MenuItem value={400}>400 Juta</MenuItem>
+                <MenuItem value={450}>450 Juta</MenuItem>
+                <MenuItem value={500}>500 Juta</MenuItem>
             </Select>
         </FormControl>
     );

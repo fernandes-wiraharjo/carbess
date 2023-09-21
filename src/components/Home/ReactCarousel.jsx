@@ -18,7 +18,7 @@ function ReactCarousel() {
       <Carousel 
         cols={3} 
         rows={1} 
-        gap={10} 
+        gap={0} 
         autoplay={3000} 
         loop
         showDots

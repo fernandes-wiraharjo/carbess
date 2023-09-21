@@ -157,14 +157,30 @@ export default function CarListHeader() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <FormControl fullWidth size="small">
-                                <InputLabel id="lblPrice">Harga</InputLabel>
+                                <InputLabel id="lblPriceStart">Harga Awal</InputLabel>
                                 <Select
-                                    labelId="lblPrice"
-                                    id="slPrice"
+                                    labelId="lblPriceStart"
+                                    id="slPriceStart"
                                     value={age}
-                                    label="Harga"
+                                    label="Harga Awal"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <FormControl fullWidth size="small">
+                                <InputLabel id="lblPriceEnd">Harga Akhir</InputLabel>
+                                <Select
+                                    labelId="lblPriceEnd"
+                                    id="slPriceEnd"
+                                    value={age}
+                                    label="Harga Akhir"
                                     onChange={handleChange}
                                 >
                                     <MenuItem value={10}>Ten</MenuItem>
