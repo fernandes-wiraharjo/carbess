@@ -1,4 +1,4 @@
-import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYear, SlKilometer, SlTransmition, SlBodyType,
+import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYearStart, SlKilometerStart, SlTransmission, SlBodyType,
   SlColor, SlFuel, SlDriveWheelType } from '../../Inputs/Selects';
 import Range from './../input-range/range';
 import './filter.css';
@@ -31,7 +31,7 @@ export default () => (
       <KilometerFilter />
     </div>
     <div className="filter__row">
-      <TransmitionFilter />
+      <TransmissionFilter />
     </div>
     <div className="filter__row">
       <BodyTypeFilter />
@@ -136,7 +136,7 @@ const YearFilter = () => (
     </svg>
     </label>
     <div className="container">
-      <SlYear />
+      <SlYearStart />
     </div>
   </div>
 );
@@ -151,12 +151,12 @@ const KilometerFilter = () => (
     </svg>
     </label>
     <div className="container">
-      <SlKilometer />
+      <SlKilometerStart />
     </div>
   </div>
 );
 
-const TransmitionFilter = () => (
+const TransmissionFilter = () => (
   <div className="filter__item">
     <input id="transmition" className="keybig" type="checkbox" defaultChecked />
     <label htmlFor="transmition" className="label">
@@ -166,7 +166,7 @@ const TransmitionFilter = () => (
     </svg>
     </label>
     <div className="container">
-      <SlTransmition />
+      <SlTransmission />
     </div>
   </div>
 );

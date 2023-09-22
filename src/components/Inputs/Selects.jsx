@@ -1,224 +1,281 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 
-export function SlBrand() {
-    const [brand, setBrand] = useState('');
-
-    const handleChange = (event) => {
-        setBrand(event.target.value);
-    };
-
+export function SlBrand({list, val, handleChange}) {
     return (
         <FormControl fullWidth size='small'>
-            <InputLabel id="lblBrand">Merek</InputLabel>
+            <InputLabel id="lblBrand">
+                <Typography variant="subtitle2">Merek</Typography>
+            </InputLabel>
             <Select
                 labelId="lblBrand"
-                id="slBrand"
-                value={brand}
+                id="brandId"
+                value={val}
                 label="Merek"
                 onChange={handleChange}
+                name="brand"
             >
-                <MenuItem value={1}>Honda</MenuItem>
-                <MenuItem value={2}>Toyota</MenuItem>
-                <MenuItem value={3}>Suzuki</MenuItem>
-                <MenuItem value={4}>Mitsubishi</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlModel() {
-    const [model, setModel] = useState('');
-
-    const handleChange = (event) => {
-        setModel(event.target.value);
-    };
+export function SlModel({list, val, handleChange}) {
+    let disabled = false;
+    if (list.length === 0) disabled = true;
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblModel">Model</InputLabel>
+            <InputLabel id="lblModel">
+                <Typography variant="subtitle2">Model</Typography>
+            </InputLabel>
             <Select
                 labelId="lblModel"
                 id="slModel"
-                value={model}
+                value={val}
                 label="Model"
                 onChange={handleChange}
+                disabled={disabled}
+                name="model"
             >
-                <MenuItem value={1}>Xpander</MenuItem>
-                <MenuItem value={2}>Crv</MenuItem>
-                <MenuItem value={3}>Hrv</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlPriceStart() {
-    const [price, setPrice] = useState('');
-
-    const handleChange = (event) => {
-        setPrice(event.target.value);
-    };
-
+export function SlPriceStart({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblPrice">Harga Awal</InputLabel>
+            <InputLabel id="lblPrice">
+                <Typography variant="subtitle2">Min Harga</Typography>
+            </InputLabel>
             <Select
                 labelId="lblPrice"
                 id="slPrice"
-                value={price}
-                label="Harga Awal"
+                value={val}
+                label="Min Harga"
                 onChange={handleChange}
             >
-                <MenuItem value={25}>25 Juta</MenuItem>
-                <MenuItem value={50}>50 Juta</MenuItem>
-                <MenuItem value={100}>100 Juta</MenuItem>
-                <MenuItem value={150}>150 Juta</MenuItem>
-                <MenuItem value={200}>200 Juta</MenuItem>
-                <MenuItem value={250}>250 Juta</MenuItem>
-                <MenuItem value={300}>300 Juta</MenuItem>
-                <MenuItem value={350}>350 Juta</MenuItem>
-                <MenuItem value={400}>400 Juta</MenuItem>
-                <MenuItem value={450}>450 Juta</MenuItem>
-                <MenuItem value={500}>500 Juta</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data.id} value={data.id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlPriceEnd() {
-    const [priceEnd, setPriceEnd] = useState('');
-
-    const handleChange = (event) => {
-        setPriceEnd(event.target.value);
-    };
+export function SlPriceEnd({list, priceStart, val, handleChange}) {
+    let disabled = false;
+    if (priceStart === '') disabled = true;
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblPriceEnd">Harga Akhir</InputLabel>
+            <InputLabel id="lblPriceEnd">
+                <Typography variant="subtitle2">Maks Harga</Typography>
+            </InputLabel>
             <Select
                 labelId="lblPriceEnd"
                 id="slPriceEnd"
-                value={priceEnd}
-                label="Harga Akhir"
+                value={val}
+                label="Maks Harga"
                 onChange={handleChange}
+                disabled={disabled}
             >
-                <MenuItem value={25}>25 Juta</MenuItem>
-                <MenuItem value={50}>50 Juta</MenuItem>
-                <MenuItem value={100}>100 Juta</MenuItem>
-                <MenuItem value={150}>150 Juta</MenuItem>
-                <MenuItem value={200}>200 Juta</MenuItem>
-                <MenuItem value={250}>250 Juta</MenuItem>
-                <MenuItem value={300}>300 Juta</MenuItem>
-                <MenuItem value={350}>350 Juta</MenuItem>
-                <MenuItem value={400}>400 Juta</MenuItem>
-                <MenuItem value={450}>450 Juta</MenuItem>
-                <MenuItem value={500}>500 Juta</MenuItem>
+                {list.map((data) => {
+                    if (data.id >= priceStart) {
+                        return (
+                            <MenuItem key={data.id} value={data.id}>
+                                <Typography variant="subtitle2">{ data.name }</Typography>
+                            </MenuItem>
+                        )
+                    }
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlYear() {
-    const [year, setYear] = useState('');
-
-    const handleChange = (event) => {
-        setYear(event.target.value);
-    };
-
+export function SlYearStart({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblYear">Tahun</InputLabel>
+            <InputLabel id="lblYear">
+                <Typography variant="subtitle2">Min Tahun</Typography>
+            </InputLabel>
             <Select
                 labelId="lblYear"
                 id="slYear"
-                value={year}
-                label="Tahun"
+                value={val}
+                label="Min Tahun"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>2015</MenuItem>
-                <MenuItem value={2}>2016</MenuItem>
-                <MenuItem value={3}>2017</MenuItem>
-                <MenuItem value={4}>2018</MenuItem>
-                <MenuItem value={5}>2019</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data.id} value={data.id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlKilometer() {
-    const [kilometer, setKilometer] = useState('');
-
-    const handleChange = (event) => {
-        setKilometer(event.target.value);
-    };
+export function SlYearEnd({list, yearStart, val, handleChange}) {
+    let disabled = false;
+    if (yearStart === '') disabled = true;
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblKilometer">Kilometer</InputLabel>
+            <InputLabel id="lblYear">
+                <Typography variant="subtitle2">Maks Tahun</Typography>
+            </InputLabel>
+            <Select
+                labelId="lblYear"
+                id="slYear"
+                value={val}
+                label="Maks Tahun"
+                onChange={handleChange}
+                disabled={disabled}
+            >
+                {list.map((data) => {
+                    if (data.id >= yearStart) {
+                        return (
+                            <MenuItem key={data.id} value={data.id}>
+                                <Typography variant="subtitle2">{ data.name }</Typography>
+                            </MenuItem>
+                        )
+                    }
+                })}
+            </Select>
+        </FormControl>
+    );
+}
+
+export function SlKilometerStart({list, val, handleChange}) {
+    return (
+        <FormControl fullWidth size="small">
+            <InputLabel id="lblKilometer">
+                <Typography variant="subtitle2">Min Kilometer</Typography>
+            </InputLabel>
             <Select
                 labelId="lblKilometer"
                 id="slKilometer"
-                value={kilometer}
-                label="Kilometer"
+                value={val}
+                label="Min Kilometer"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>5K-10K</MenuItem>
-                <MenuItem value={2}>10K-15K</MenuItem>
-                <MenuItem value={3}>15K-20K</MenuItem>
-                <MenuItem value={4}>20K-25K</MenuItem>
-                <MenuItem value={5}>25K-30K</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data.id} value={data.id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlTransmition() {
-    const [transmition, setTransmition] = useState('');
-
-    const handleChange = (event) => {
-        setTransmition(event.target.value);
-    };
+export function SlKilometerEnd({list, kilometerStart, val, handleChange}) {
+    let disabled = false;
+    if (kilometerStart === '') disabled = true;
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblTransmition">Transmisi</InputLabel>
+            <InputLabel id="lblKilometer">
+                <Typography variant="subtitle2">Maks Kilometer</Typography>
+            </InputLabel>
+            <Select
+                labelId="lblKilometer"
+                id="slKilometer"
+                value={val}
+                label="Maks Kilometer"
+                onChange={handleChange}
+                disabled={disabled}
+            >
+                {list.map((data) => {
+                    if (data.id >= kilometerStart) {
+                        return (
+                            <MenuItem key={data.id} value={data.id}>
+                                <Typography variant="subtitle2">{ data.name }</Typography>
+                            </MenuItem>
+                        )
+                    }
+                })}
+            </Select>
+        </FormControl>
+    );
+}
+
+export function SlTransmission({list, val, handleChange}) {
+    return (
+        <FormControl fullWidth size="small">
+            <InputLabel id="lblTransmition">
+                <Typography variant="subtitle2">Transmisi</Typography>
+            </InputLabel>
             <Select
                 labelId="lblTransmition"
                 id="slTransmition"
-                value={transmition}
+                value={val}
                 label="Transmisi"
                 onChange={handleChange}
+                name="transmission"
             >
-                <MenuItem value={1}>Automatic</MenuItem>
-                <MenuItem value={2}>Manual</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlBodyType() {
-    const [bodyType, setBodyType] = useState('');
-
-    const handleChange = (event) => {
-        setBodyType(event.target.value);
-    };
-
+export function SlBodyType({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblBodyType">Tipe Bodi</InputLabel>
+            <InputLabel id="lblBodyType">
+                <Typography variant="subtitle2">Tipe Bodi</Typography>
+            </InputLabel>
             <Select
                 labelId="lblBodyType"
                 id="slBodyType"
-                value={bodyType}
+                value={val}
                 label="Tipe Bodi"
                 onChange={handleChange}
+                name="bodyType"
             >
-                <MenuItem value={1}>Wagon</MenuItem>
-                <MenuItem value={2}>SUV</MenuItem>
-                <MenuItem value={2}>Hatchback</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
@@ -233,7 +290,9 @@ export function SlColor() {
 
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblColor">Warna</InputLabel>
+            <InputLabel id="lblColor">
+                <Typography variant="subtitle2">Warna</Typography>
+            </InputLabel>
             <Select
                 labelId="lblColor"
                 id="slColor"
@@ -249,51 +308,53 @@ export function SlColor() {
     );
 }
 
-export function SlFuel() {
-    const [fuel, setFuel] = useState('');
-
-    const handleChange = (event) => {
-        setFuel(event.target.value);
-    };
-
+export function SlFuel({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblFuel">Bahan Bakar</InputLabel>
+            <InputLabel id="lblFuel">
+                <Typography variant="subtitle2">Bahan Bakar</Typography>
+            </InputLabel>
             <Select
                 labelId="lblFuel"
                 id="slFuel"
-                value={fuel}
+                value={val}
                 label="Bahan Bakar"
                 onChange={handleChange}
+                name="fuel"
             >
-                <MenuItem value={1}>Bensin</MenuItem>
-                <MenuItem value={2}>Diesel</MenuItem>
-                <MenuItem value={3}>Solar</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
 }
 
-export function SlDriveWheelType() {
-    const [driverWheelType, setDriveWheelType] = useState('');
-
-    const handleChange = (event) => {
-        setDriveWheelType(event.target.value);
-    };
-
+export function SlDriveWheelType({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
-            <InputLabel id="lblDriveWheelType">Tipe Roda Penggerak</InputLabel>
+            <InputLabel id="lblDriveWheelType">
+                <Typography variant="subtitle2">Tipe Roda Penggerak</Typography>
+            </InputLabel>
             <Select
                 labelId="lblDriveWheelType"
                 id="slDriveWheelType"
-                value={driverWheelType}
+                value={val}
                 label="Tipe Roda Penggerak"
                 onChange={handleChange}
+                name="driveWheelType"
             >
-                <MenuItem value={1}>FWD</MenuItem>
-                <MenuItem value={2}>RWD</MenuItem>
-                <MenuItem value={3}>AWD</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
@@ -308,7 +369,9 @@ export function SlSort() {
 
     return (
         <FormControl sx={{ minWidth: 200 }} size="small">
-            <InputLabel id="lblSort">Urut Berdasarkan</InputLabel>
+            <InputLabel id="lblSort">
+                <Typography variant="subtitle2">Urut Berdasarkan</Typography>
+            </InputLabel>
             <Select
                 labelId="lblSort"
                 id="slSort"

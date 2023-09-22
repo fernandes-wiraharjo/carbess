@@ -1,12 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import { SlBrand, SlModel, SlPriceStart, SlPriceEnd } from '../Inputs/Selects';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYearStart, SlYearEnd, 
+    SlKilometerStart, SlKilometerEnd, SlTransmission, SlBodyType, SlFuel, SlDriveWheelType} from '../Inputs/Selects';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { styled, useTheme } from '@mui/material/styles';
@@ -18,6 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './GlobalSearch.css';
+import { formattedNumber } from '../Utils.js';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -57,15 +55,134 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
+const generatePrices = (startPrice) => {
+    const maxPrice = 500, prices = [];
+    startPrice = startPrice || 50;
+    prices.push({id: 25, name: '25 Juta'});
+    while ( startPrice <= maxPrice ) {
+        prices.push({id: startPrice, name: `${startPrice} Juta`});
+        startPrice += 50;
+    }   
+    return prices;
+};
+
+const generateYears = (startYear) => {
+    const currentYear = new Date().getFullYear(), years = [];
+    startYear = startYear || 2010;
+    years.push({id: startYear, name: startYear});
+    while ( startYear < currentYear ) {
+        startYear++;
+        years.push({id: startYear, name: startYear});
+    }   
+    return years;
+};
+
+const generateKilometers = (startKilometer) => {
+    const maxKilometer = 500000, kilometers = [];
+    startKilometer = startKilometer || 0;    
+    while ( startKilometer <= maxKilometer ) {        
+        kilometers.push({id: startKilometer, name: formattedNumber(startKilometer)});
+        startKilometer += 10000;
+    }   
+    return kilometers;
+};
+
+const prices = generatePrices(50);
+const years = generateYears(2010);
+const kilometers = generateKilometers(0);
+
 export default function GlobalSearch() {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-    const [age, setAge] = useState('');
-    const [open, setOpen] = useState(false);
+    const api_url = import.meta.env.VITE_API_URL;
+    const [slBrand, setSlBrand] = useState([]);
+    const [slModel, setSlModel] = useState([]);
+    const [slTransmission, setSlTransmission] = useState([]);
+    const [slBodyType, setSlBodyType] = useState([]);
+    const [slFuel, setSlFuel] = useState([]);
+    const [slDriveWheelType, setSlDriveWheelType] = useState([]);
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    useEffect(() => {
+        brands(), transmissions(), bodyTypes(), fuels(), driveWheelTypes()
+    }, []);
+    
+    const brands = async () => {
+        const response = await fetch(`${api_url}/brands/`);
+        setSlBrand(await response.json());
+    };
+    const models = async (brandId) => {
+        const response = await fetch(`${api_url}/models/brands/${brandId}`);
+        setSlModel(await response.json());
+    };
+    const transmissions = async () => {
+        const response = await fetch(`${api_url}/transmissions/`);
+        setSlTransmission(await response.json());
+    };
+    const bodyTypes = async () => {
+        const response = await fetch(`${api_url}/body-types/`);
+        setSlBodyType(await response.json());
+    };
+    const fuels = async () => {
+        const response = await fetch(`${api_url}/fuels/`);
+        setSlFuel(await response.json());
+    };
+    const driveWheelTypes = async () => {
+        const response = await fetch(`${api_url}/drive-wheel-types/`);
+        setSlDriveWheelType(await response.json());
+    };
+
+    const [formData, setFormData] = useState({transmission: '', bodyType: '', fuel: '', driveWheelType: '',
+        brand: '', model: ''
+    });
+    const [priceStart, setPriceStart] = useState('');
+    const [priceEnd, setPriceEnd] = useState('');
+    const [yearStart, setYearStart] = useState('');
+    const [yearEnd, setYearEnd] = useState('');
+    const [kilometerStart, setKilometerStart] = useState('');
+    const [kilometerEnd, setKilometerEnd] = useState('');
+    const [open, setOpen] = useState(false); 
+
+    const handleChange = (evt) => {
+        const changedField = evt.target.name;
+        const newValue = evt.target.value;
+
+        setFormData((currData) => {
+            if (changedField == 'brand') {
+                models(newValue);
+                return {
+                    ...currData,
+                    [changedField]: newValue, model: ''
+                }
+            }
+            
+            return {
+                ...currData,
+                [changedField]: newValue
+            }
+        });
+    };
+
+    const handleChangePriceStart = (event) => {
+        setPriceStart(event.target.value);
+        if (event.target.value > priceEnd ) setPriceEnd('');
+    };
+    const handleChangePriceEnd = (event) => {
+        setPriceEnd(event.target.value);
+    };
+    const handleChangeYearStart = (event) => {
+        setYearStart(event.target.value);
+        if (event.target.value > yearEnd ) setYearEnd('');
+    };
+    const handleChangeYearEnd = (event) => {
+        setYearEnd(event.target.value);
+    };
+    const handleChangeKilometerStart = (event) => {
+        setKilometerStart(event.target.value);
+        if (event.target.value > kilometerEnd ) setKilometerEnd('');
+    };
+    const handleChangeKilometerEnd = (event) => {
+        setKilometerEnd(event.target.value);
     };
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -95,16 +212,16 @@ export default function GlobalSearch() {
             >
                 <Grid container spacing={2} mb={2.5}>
                     <Grid item xs={12} md={3}>
-                        <SlBrand />
+                        <SlBrand list={slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        <SlModel />
+                        <SlModel list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={6} md={1.5}>
-                        <SlPriceStart />
+                        <SlPriceStart list={prices} val={priceStart} handleChange={(e) => handleChangePriceStart(e)} />
                     </Grid>
                     <Grid item xs={6} md={1.5}>
-                        <SlPriceEnd />
+                        <SlPriceEnd list={prices}  priceStart={priceStart} val={priceEnd} handleChange={(e) => handleChangePriceEnd(e)} />
                     </Grid>
                     <Grid item xs={12} md={3}>
                         <Button variant="contained" fullWidth
@@ -149,164 +266,40 @@ export default function GlobalSearch() {
                 <DialogContent dividers>
                     <Grid container spacing={2}>
                         <Grid item xs={6} md={6}>
-                            <FormControl fullWidth size='small'>
-                                <InputLabel id="lblBrand"><Typography variant="subtitle2">Merek</Typography></InputLabel>
-                                <Select
-                                    labelId="lblBrand"
-                                    id="slBrand"
-                                    value={age}
-                                    label="Merek"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlBrand list={slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6} md={6}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblModel"><Typography variant="subtitle2">Model</Typography></InputLabel>
-                                <Select
-                                    labelId="lblModel"
-                                    id="slModel"
-                                    value={age}
-                                    label="Model"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlModel list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblPriceStart"><Typography variant="subtitle2">Harga Awal</Typography></InputLabel>
-                                <Select
-                                    labelId="lblPriceStart"
-                                    id="slPriceStart"
-                                    value={age}
-                                    label="Harga Awal"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlPriceStart list={prices} val={priceStart} handleChange={(e) => handleChangePriceStart(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblPriceEnd"><Typography variant="subtitle2">Harga Akhir</Typography></InputLabel>
-                                <Select
-                                    labelId="lblPriceEnd"
-                                    id="slPriceEnd"
-                                    value={age}
-                                    label="Harga Akhir"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlPriceEnd list={prices} priceStart={priceStart} val={priceEnd} handleChange={(e) => handleChangePriceEnd(e)} />
                         </Grid>
-                        <Grid item xs={12}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblYear"><Typography variant="subtitle2">Tahun</Typography></InputLabel>
-                                <Select
-                                    labelId="lblYear"
-                                    id="slYear"
-                                    value={age}
-                                    label="Tahun"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                        <Grid item xs={6}>
+                            <SlYearStart list={years} val={yearStart} handleChange={(e) => handleChangeYearStart(e)} />
                         </Grid>
-                        <Grid item xs={12}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblKilometer"><Typography variant="subtitle2">Kilometer</Typography></InputLabel>
-                                <Select
-                                    labelId="lblKilometer"
-                                    id="slKilometer"
-                                    value={age}
-                                    label="Kilometer"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                        <Grid item xs={6}>
+                            <SlYearEnd list={years} yearStart={yearStart} val={yearEnd} handleChange={(e) => handleChangeYearEnd(e)} />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <SlKilometerStart list={kilometers} val={kilometerStart} handleChange={(e) => handleChangeKilometerStart(e)} />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <SlKilometerEnd list={kilometers} kilometerStart={kilometerStart} val={kilometerEnd} handleChange={(e) => handleChangeKilometerEnd(e)} />
                         </Grid>
                         <Grid item xs={6} md={6}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblTransmition"><Typography variant="subtitle2">Transmisi</Typography></InputLabel>
-                                <Select
-                                    labelId="lblTransmition"
-                                    id="slTransmition"
-                                    value={age}
-                                    label="Transmisi"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlTransmission list={slTransmission} val={formData.transmission} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6} md={6}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblBodyType"><Typography variant="subtitle2">Tipe Bodi</Typography></InputLabel>
-                                <Select
-                                    labelId="lblBodyType"
-                                    id="slBodyType"
-                                    value={age}
-                                    label="Tipe Bodi"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlBodyType list={slBodyType} val={formData.bodyType} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblFuel"><Typography variant="subtitle2">Bahan Bakar</Typography></InputLabel>
-                                <Select
-                                    labelId="lblFuel"
-                                    id="slFuel"
-                                    value={age}
-                                    label="Bahan Bakar"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlFuel list={slFuel} val={formData.fuel} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormControl fullWidth size="small">
-                                <InputLabel id="lblDriveWheelType"><Typography variant="subtitle2">Tipe Roda Penggerak</Typography></InputLabel>
-                                <Select
-                                    labelId="lblDriveWheelType"
-                                    id="slDriveWheelType"
-                                    value={age}
-                                    label="Tipe Roda Penggerak"
-                                    onChange={handleChange}
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <SlDriveWheelType list={slDriveWheelType} val={formData.driveWheelType} handleChange={(e) => handleChange(e)} />
                         </Grid>
                     </Grid>
                 </DialogContent>

@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './NewArrival.css';
+import { formattedNumber } from '../Utils.js';
 
 export default function NewArrival() {
     const [car, setCar] = useState([]);
@@ -20,10 +21,6 @@ export default function NewArrival() {
         const api_url = import.meta.env.VITE_API_URL;
         const response = await fetch(`${api_url}/cars/new-arrival`);
         setCar(await response.json());
-    };
-
-    const formattedNumber = (value) => {
-        return Intl.NumberFormat("id-ID", { maximumFractionDigits: 2 }).format(value);
     };
 
     return (        
