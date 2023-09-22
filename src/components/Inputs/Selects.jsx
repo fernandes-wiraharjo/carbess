@@ -73,6 +73,7 @@ export function SlPriceStart({list, val, handleChange}) {
                 value={val}
                 label="Min Harga"
                 onChange={handleChange}
+                name="priceStart"
             >
                 {list.map((data) => {
                     return (
@@ -102,6 +103,7 @@ export function SlPriceEnd({list, priceStart, val, handleChange}) {
                 label="Maks Harga"
                 onChange={handleChange}
                 disabled={disabled}
+                name="priceEnd"
             >
                 {list.map((data) => {
                     if (data.id >= priceStart) {
@@ -129,6 +131,7 @@ export function SlYearStart({list, val, handleChange}) {
                 value={val}
                 label="Min Tahun"
                 onChange={handleChange}
+                name="yearStart"
             >
                 {list.map((data) => {
                     return (
@@ -158,6 +161,7 @@ export function SlYearEnd({list, yearStart, val, handleChange}) {
                 label="Maks Tahun"
                 onChange={handleChange}
                 disabled={disabled}
+                name="yearEnd"
             >
                 {list.map((data) => {
                     if (data.id >= yearStart) {
@@ -185,6 +189,7 @@ export function SlKilometerStart({list, val, handleChange}) {
                 value={val}
                 label="Min Kilometer"
                 onChange={handleChange}
+                name="kilometerStart"
             >
                 {list.map((data) => {
                     return (
@@ -214,6 +219,7 @@ export function SlKilometerEnd({list, kilometerStart, val, handleChange}) {
                 label="Maks Kilometer"
                 onChange={handleChange}
                 disabled={disabled}
+                name="kilometerEnd"
             >
                 {list.map((data) => {
                     if (data.id >= kilometerStart) {

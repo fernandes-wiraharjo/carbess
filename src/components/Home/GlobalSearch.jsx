@@ -133,14 +133,9 @@ export default function GlobalSearch() {
     };
 
     const [formData, setFormData] = useState({transmission: '', bodyType: '', fuel: '', driveWheelType: '',
-        brand: '', model: ''
+        brand: '', model: '', priceStart: '', priceEnd: '', yearStart: '', yearEnd: '', kilometerStart: '',
+        kilometerEnd: ''
     });
-    const [priceStart, setPriceStart] = useState('');
-    const [priceEnd, setPriceEnd] = useState('');
-    const [yearStart, setYearStart] = useState('');
-    const [yearEnd, setYearEnd] = useState('');
-    const [kilometerStart, setKilometerStart] = useState('');
-    const [kilometerEnd, setKilometerEnd] = useState('');
     const [open, setOpen] = useState(false); 
 
     const handleChange = (evt) => {
@@ -154,8 +149,23 @@ export default function GlobalSearch() {
                     ...currData,
                     [changedField]: newValue, model: ''
                 }
+            } else if (changedField == 'priceStart') {
+                return {
+                    ...currData,
+                    [changedField]: newValue, priceEnd: newValue > currData.priceEnd ? '' : currData.priceEnd
+                }
+            } else if (changedField == 'yearStart') {
+                return {
+                    ...currData,
+                    [changedField]: newValue, yearEnd: newValue > currData.yearEnd ? '' : currData.yearEnd
+                }
+            } else if (changedField == 'kilometerStart') {
+                return {
+                    ...currData,
+                    [changedField]: newValue, kilometerEnd: newValue > currData.kilometerEnd ? '' : currData.kilometerEnd
+                }
             }
-            
+
             return {
                 ...currData,
                 [changedField]: newValue
@@ -163,27 +173,6 @@ export default function GlobalSearch() {
         });
     };
 
-    const handleChangePriceStart = (event) => {
-        setPriceStart(event.target.value);
-        if (event.target.value > priceEnd ) setPriceEnd('');
-    };
-    const handleChangePriceEnd = (event) => {
-        setPriceEnd(event.target.value);
-    };
-    const handleChangeYearStart = (event) => {
-        setYearStart(event.target.value);
-        if (event.target.value > yearEnd ) setYearEnd('');
-    };
-    const handleChangeYearEnd = (event) => {
-        setYearEnd(event.target.value);
-    };
-    const handleChangeKilometerStart = (event) => {
-        setKilometerStart(event.target.value);
-        if (event.target.value > kilometerEnd ) setKilometerEnd('');
-    };
-    const handleChangeKilometerEnd = (event) => {
-        setKilometerEnd(event.target.value);
-    };
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     
@@ -218,10 +207,10 @@ export default function GlobalSearch() {
                         <SlModel list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={6} md={1.5}>
-                        <SlPriceStart list={prices} val={priceStart} handleChange={(e) => handleChangePriceStart(e)} />
+                        <SlPriceStart list={prices} val={formData.priceStart} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={6} md={1.5}>
-                        <SlPriceEnd list={prices}  priceStart={priceStart} val={priceEnd} handleChange={(e) => handleChangePriceEnd(e)} />
+                        <SlPriceEnd list={prices}  priceStart={formData.priceStart} val={formData.priceEnd} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={12} md={3}>
                         <Button variant="contained" fullWidth
@@ -272,22 +261,22 @@ export default function GlobalSearch() {
                             <SlModel list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlPriceStart list={prices} val={priceStart} handleChange={(e) => handleChangePriceStart(e)} />
+                            <SlPriceStart list={prices} val={formData.priceStart} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlPriceEnd list={prices} priceStart={priceStart} val={priceEnd} handleChange={(e) => handleChangePriceEnd(e)} />
+                            <SlPriceEnd list={prices} priceStart={formData.priceStart} val={formData.priceEnd} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlYearStart list={years} val={yearStart} handleChange={(e) => handleChangeYearStart(e)} />
+                            <SlYearStart list={years} val={formData.yearStart} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlYearEnd list={years} yearStart={yearStart} val={yearEnd} handleChange={(e) => handleChangeYearEnd(e)} />
+                            <SlYearEnd list={years} yearStart={formData.yearStart} val={formData.yearEnd} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlKilometerStart list={kilometers} val={kilometerStart} handleChange={(e) => handleChangeKilometerStart(e)} />
+                            <SlKilometerStart list={kilometers} val={formData.kilometerStart} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6}>
-                            <SlKilometerEnd list={kilometers} kilometerStart={kilometerStart} val={kilometerEnd} handleChange={(e) => handleChangeKilometerEnd(e)} />
+                            <SlKilometerEnd list={kilometers} kilometerStart={formData.kilometerStart} val={formData.kilometerEnd} handleChange={(e) => handleChange(e)} />
                         </Grid>
                         <Grid item xs={6} md={6}>
                             <SlTransmission list={slTransmission} val={formData.transmission} handleChange={(e) => handleChange(e)} />
