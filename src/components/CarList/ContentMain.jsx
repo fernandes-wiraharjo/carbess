@@ -6,12 +6,12 @@ import ListItem from './ListItem';
 import CarListPaging from '../Others/Paging';
 import './ContentMain.css';
 
-export default function ContentMain() {
+export default function ContentMain({data, selectData}) {
     return (
         <div className='ContentMain'>
             <Wrapper>
                 <LeftColumn>
-                    <Filter />
+                    <Filter data={data} selectData={selectData} />
                 </LeftColumn>
                 <RightColumn>
                     <div id="header">

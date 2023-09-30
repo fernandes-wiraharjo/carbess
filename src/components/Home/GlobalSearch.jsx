@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -175,6 +176,13 @@ export default function GlobalSearch() {
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const navigate = useNavigate();
+    const handleSubmit = () => {
+        navigate('/car-list', { state: { formData, slBrand, slModel, prices, years, kilometers, slTransmission,
+            slBodyType, slFuel, slDriveWheelType
+        } });
+    };
     
     return (
         <section className='GlobalSearch'>
@@ -213,7 +221,7 @@ export default function GlobalSearch() {
                         <SlPriceEnd list={prices}  priceStart={formData.priceStart} val={formData.priceEnd} handleChange={(e) => handleChange(e)} />
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        <Button variant="contained" fullWidth
+                        <Button variant="contained" fullWidth onClick={handleSubmit}
                             sx={{ 
                                 backgroundColor: '#fe8104',
                                 ':hover': {
@@ -293,7 +301,7 @@ export default function GlobalSearch() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
+                    <Button autoFocus onClick={handleSubmit}>
                         Cari
                     </Button>
                 </DialogActions>

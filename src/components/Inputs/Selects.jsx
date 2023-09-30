@@ -287,13 +287,7 @@ export function SlBodyType({list, val, handleChange}) {
     );
 }
 
-export function SlColor() {
-    const [color, setColor] = useState('');
-
-    const handleChange = (event) => {
-        setColor(event.target.value);
-    };
-
+export function SlColor({list, val, handleChange}) {
     return (
         <FormControl fullWidth size="small">
             <InputLabel id="lblColor">
@@ -302,13 +296,18 @@ export function SlColor() {
             <Select
                 labelId="lblColor"
                 id="slColor"
-                value={color}
+                value={val}
                 label="Warna"
                 onChange={handleChange}
+                name="color"
             >
-                <MenuItem value={1}>Hitam</MenuItem>
-                <MenuItem value={2}>Putih</MenuItem>
-                <MenuItem value={3}>Merah</MenuItem>
+                {list.map((data) => {
+                    return (
+                        <MenuItem key={data._id} value={data._id}>
+                            <Typography variant="subtitle2">{ data.name }</Typography>
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );
