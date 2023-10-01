@@ -9,17 +9,12 @@ import PopularSearches from '../components/Others/PopularSearches';
 import Footer from '../components/Others/Footer';
 import CarListHeader from './CarList/Header';
 import '../App.css';
+import { initFormDataFilter } from './Constants';
 
 
 function CarList() {
   const location = useLocation();
-
-  if (location.state === null) {
-    window.location.replace("/");
-  }
-
-  const formData = location.state.formData;
-  const selectData = location.state;
+  const formData = location.state !== null ? location.state.formData : initFormDataFilter;
 
   return (   
     <div className='App'>
@@ -29,7 +24,7 @@ function CarList() {
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
             <CarListHeader />
-            <ContentMain data={formData} selectData={selectData} />
+            <ContentMain data={formData} />
             <PopularSearches />
           </ThemeProvider>
         </Container>

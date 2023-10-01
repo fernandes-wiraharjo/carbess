@@ -16,7 +16,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './GlobalSearch.css';
-import { formattedNumber } from '../Utils.js';
+import { generatePrices, generateYears, generateKilometers } from '../Utils.js';
+import { initFormDataFilter } from '../Constants';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -54,38 +55,6 @@ function BootstrapDialogTitle(props) {
 BootstrapDialogTitle.propTypes = {
     children: PropTypes.node,
     onClose: PropTypes.func.isRequired,
-};
-
-const generatePrices = (startPrice) => {
-    const maxPrice = 500, prices = [];
-    startPrice = startPrice || 50;
-    prices.push({id: 25, name: '25 Juta'});
-    while ( startPrice <= maxPrice ) {
-        prices.push({id: startPrice, name: `${startPrice} Juta`});
-        startPrice += 50;
-    }   
-    return prices;
-};
-
-const generateYears = (startYear) => {
-    const currentYear = new Date().getFullYear(), years = [];
-    startYear = startYear || 2010;
-    years.push({id: startYear, name: startYear});
-    while ( startYear < currentYear ) {
-        startYear++;
-        years.push({id: startYear, name: startYear});
-    }   
-    return years;
-};
-
-const generateKilometers = (startKilometer) => {
-    const maxKilometer = 500000, kilometers = [];
-    startKilometer = startKilometer || 0;    
-    while ( startKilometer <= maxKilometer ) {        
-        kilometers.push({id: startKilometer, name: formattedNumber(startKilometer)});
-        startKilometer += 10000;
-    }   
-    return kilometers;
 };
 
 const prices = generatePrices(50);
@@ -133,10 +102,7 @@ export default function GlobalSearch() {
         setSlDriveWheelType(await response.json());
     };
 
-    const [formData, setFormData] = useState({transmission: '', bodyType: '', fuel: '', driveWheelType: '',
-        brand: '', model: '', priceStart: '', priceEnd: '', yearStart: '', yearEnd: '', kilometerStart: '',
-        kilometerEnd: ''
-    });
+    const [formData, setFormData] = useState(initFormDataFilter);
     const [open, setOpen] = useState(false); 
 
     const handleChange = (evt) => {
@@ -179,9 +145,7 @@ export default function GlobalSearch() {
 
     const navigate = useNavigate();
     const handleSubmit = () => {
-        navigate('/car-list', { state: { formData, slBrand, slModel, prices, years, kilometers, slTransmission,
-            slBodyType, slFuel, slDriveWheelType
-        } });
+        navigate('/car-list', { state: { formData } });
     };
     
     return (

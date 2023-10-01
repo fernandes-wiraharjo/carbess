@@ -2,56 +2,54 @@ import { useState, useEffect } from 'react';
 import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYearStart, SlYearEnd, SlKilometerStart, SlKilometerEnd,
   SlTransmission, SlBodyType, SlColor, SlFuel, SlDriveWheelType } from '../../Inputs/Selects';
 import Range from './../input-range/range';
-import { formattedNumber } from '../../Utils.js';
 import './filter.css';
+import { initFormDataFilter } from '../../Constants';
+import { generatePrices, generateYears, generateKilometers } from '../../Utils.js';
 
-
-const generatePrices = (startPrice) => {
-  const maxPrice = 500, prices = [];
-  startPrice = startPrice || 50;
-  prices.push({id: 25, name: '25 Juta'});
-  while ( startPrice <= maxPrice ) {
-      prices.push({id: startPrice, name: `${startPrice} Juta`});
-      startPrice += 50;
-  }   
-  return prices;
-};
-const generateYears = (startYear) => {
-  const currentYear = new Date().getFullYear(), years = [];
-  startYear = startYear || 2010;
-  years.push({id: startYear, name: startYear});
-  while ( startYear < currentYear ) {
-      startYear++;
-      years.push({id: startYear, name: startYear});
-  }   
-  return years;
-};
-const generateKilometers = (startKilometer) => {
-  const maxKilometer = 500000, kilometers = [];
-  startKilometer = startKilometer || 0;    
-  while ( startKilometer <= maxKilometer ) {        
-      kilometers.push({id: startKilometer, name: formattedNumber(startKilometer)});
-      startKilometer += 10000;
-  }   
-  return kilometers;
-};
 
 const prices = generatePrices(50);
 const years = generateYears(2010);
 const kilometers = generateKilometers(0);
 
-export default function Filter({data, selectData}) {
+export default function Filter({data}) {
   const api_url = import.meta.env.VITE_API_URL;
-  const [slModel, setSlModel] = useState(selectData.slModel || []);
+  const [slBrand, setSlBrand] = useState([]);
+  const [slModel, setSlModel] = useState([]);
+  const [slTransmission, setSlTransmission] = useState([]);
+  const [slBodyType, setSlBodyType] = useState([]);
+  const [slFuel, setSlFuel] = useState([]);
+  const [slDriveWheelType, setSlDriveWheelType] = useState([]);
   const [slColor, setSlColor] = useState([]);
 
   useEffect(() => {
-    colors()
+    brands(), models(data.brand), transmissions(), bodyTypes(), fuels(), driveWheelTypes(), colors()
   }, []);
   
+  const brands = async () => {
+    const response = await fetch(`${api_url}/brands/`);
+    setSlBrand(await response.json());
+  };
   const models = async (brandId) => {
-    const response = await fetch(`${api_url}/models/brands/${brandId}`);
-    setSlModel(await response.json());
+      if (brandId !== '') {
+        const response = await fetch(`${api_url}/models/brands/${brandId}`);
+        setSlModel(await response.json());
+      }
+  };
+  const transmissions = async () => {
+      const response = await fetch(`${api_url}/transmissions/`);
+      setSlTransmission(await response.json());
+  };
+  const bodyTypes = async () => {
+      const response = await fetch(`${api_url}/body-types/`);
+      setSlBodyType(await response.json());
+  };
+  const fuels = async () => {
+      const response = await fetch(`${api_url}/fuels/`);
+      setSlFuel(await response.json());
+  };
+  const driveWheelTypes = async () => {
+      const response = await fetch(`${api_url}/drive-wheel-types/`);
+      setSlDriveWheelType(await response.json());
   };
   const colors = async () => {
     const response = await fetch(`${api_url}/colors/`);
@@ -60,7 +58,7 @@ export default function Filter({data, selectData}) {
 
   const [formData, setFormData] = useState({transmission: data.transmission, bodyType: data.bodyType, fuel: data.fuel, 
     driveWheelType: data.driveWheelType, brand: data.brand, model: data.model, priceStart: data.priceStart, priceEnd: data.priceEnd, 
-    yearStart: data.yearStart, yearEnd: data.yearEnd, kilometerStart: data.kilometerStart, kilometerEnd: data.kilometerEnd, color: ''
+    yearStart: data.yearStart, yearEnd: data.yearEnd, kilometerStart: data.kilometerStart, kilometerEnd: data.kilometerEnd, color: data.color
   });
 
   const handleChange = (evt) => {
@@ -99,9 +97,7 @@ export default function Filter({data, selectData}) {
   };
 
   const handleReset = () => {
-    setFormData({transmission: '', bodyType: '', fuel: '', driveWheelType: '', brand: '', model: '', priceStart: '', priceEnd: '', 
-      yearStart: '', yearEnd: '', kilometerStart: '', kilometerEnd: '', color: ''
-    });
+    setFormData(initFormDataFilter);
     setSlModel([]);
   };
 
@@ -114,7 +110,7 @@ export default function Filter({data, selectData}) {
         <KeywordFilter />
       </div>
       <div className="filter__row">
-        <BrandFilter list={selectData.slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
+        <BrandFilter list={slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
       </div>
       <div className="filter__row">
         <ModelFilter list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
@@ -123,34 +119,34 @@ export default function Filter({data, selectData}) {
         <RangeFilter /> //price
       </div> */}
       <div className="filter__row">
-        <PriceFilter list={selectData.prices} priceStart={formData.priceStart} priceEnd={formData.priceEnd} 
+        <PriceFilter list={prices} priceStart={formData.priceStart} priceEnd={formData.priceEnd} 
           handleChangePriceStart={(e) => handleChange(e)} handleChangePriceEnd={(e) => handleChange(e)}
         />
       </div>
       <div className="filter__row">
-        <YearFilter list={selectData.years} yearStart={formData.yearStart} yearEnd={formData.yearEnd} 
+        <YearFilter list={years} yearStart={formData.yearStart} yearEnd={formData.yearEnd} 
           handleChangeYearStart={(e) => handleChange(e)} handleChangeYearEnd={(e) => handleChange(e)}
         />
       </div>
       <div className="filter__row">
-        <KilometerFilter list={selectData.kilometers} kilometerStart={formData.kilometerStart} kilometerEnd={formData.kilometerEnd} 
+        <KilometerFilter list={kilometers} kilometerStart={formData.kilometerStart} kilometerEnd={formData.kilometerEnd} 
           handleChangeKilometerStart={(e) => handleChange(e)} handleChangeKilometerEnd={(e) => handleChange(e)}
         />
       </div>
       <div className="filter__row">
-        <TransmissionFilter list={selectData.slTransmission} val={formData.transmission} handleChange={(e) => handleChange(e)} />
+        <TransmissionFilter list={slTransmission} val={formData.transmission} handleChange={(e) => handleChange(e)} />
       </div>
       <div className="filter__row">
-        <BodyTypeFilter list={selectData.slBodyType} val={formData.bodyType} handleChange={(e) => handleChange(e)} />
+        <BodyTypeFilter list={slBodyType} val={formData.bodyType} handleChange={(e) => handleChange(e)} />
       </div>
       <div className="filter__row">
         <ColorFilter list={slColor} val={formData.color} handleChange={(e) => handleChange(e)} />
       </div>
       <div className="filter__row">
-        <FuelFilter list={selectData.slFuel} val={formData.fuel} handleChange={(e) => handleChange(e)} />
+        <FuelFilter list={slFuel} val={formData.fuel} handleChange={(e) => handleChange(e)} />
       </div>
       <div className="filter__row">
-        <DriveWheelTypeFilter list={selectData.slDriveWheelType} val={formData.driveWheelType} handleChange={(e) => handleChange(e)} />
+        <DriveWheelTypeFilter list={slDriveWheelType} val={formData.driveWheelType} handleChange={(e) => handleChange(e)} />
       </div>
     </div>
   )
