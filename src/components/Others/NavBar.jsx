@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -85,6 +85,11 @@ export default function NavBar(props) {
   //   let path = `/car-list`; 
   //   navigate(path);
   // }
+   // Get the current location object
+   const location = useLocation();
+
+   // Access the pathname of the current route
+   const currentPath = location.pathname;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -95,7 +100,10 @@ export default function NavBar(props) {
               <a href="/"><img src={carbessLogo} alt="Carbess logo" /></a>
             </div>
             {/* <Button color='inherit' onClick={routeChange} sx={{ textTransform: 'none' }}>Lihat Semua Mobil</Button> */}
-            <a href="/car-list"><Button sx={{ textTransform: 'none', color: '#fff' }}>Lihat Semua Mobil</Button></a>
+            {currentPath == '/car-list' ? 
+              (<a href="/"><Button sx={{ textTransform: 'none', color: '#fff' }}>Beranda</Button></a>) 
+              : (<a href="/car-list"><Button sx={{ textTransform: 'none', color: '#fff' }}>Lihat Semua Mobil</Button></a>)
+            }
           </Toolbar>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />

@@ -94,4 +94,14 @@ input[type=checkbox]:checked ~ .price__container {
     width: 100%;
     border: 1px solid #cbcccc;
 }
+
+@media only screen and (max-width: 767px) {
+    #btnFilter {
+        display: block;
+    }
+
+    .filter__container {
+        display: none;
+    }
+}
     

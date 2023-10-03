@@ -7,7 +7,7 @@ import NavBar from '../components/Others/NavBar';
 import ContentMain from './CarList/ContentMain';
 import PopularSearches from '../components/Others/PopularSearches';
 import Footer from '../components/Others/Footer';
-import CarListHeader from './CarList/Header';
+// import CarListHeader from './CarList/Header';
 import '../App.css';
 import { initFormDataFilter } from './Constants';
 
@@ -23,7 +23,7 @@ function CarList() {
       <main>
         <Container maxWidth='lg'>
           <ThemeProvider theme={responsiveFonts}>
-            <CarListHeader />
+            {/* <CarListHeader /> */}
             <ContentMain data={formData} />
             <PopularSearches />
           </ThemeProvider>
