@@ -7,7 +7,7 @@ export function generatePrices(startPrice) {
     startPrice = startPrice || 50;
     prices.push({id: 25, name: '25 Juta'});
     while ( startPrice <= maxPrice ) {
-        prices.push({id: startPrice, name: `${startPrice} Juta`});
+        prices.push({id: parseInt(`${startPrice}000000`), name: `${startPrice} Juta`});
         startPrice += 50;
     }   
     return prices;

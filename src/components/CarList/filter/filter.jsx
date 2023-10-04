@@ -69,15 +69,10 @@ export default function Filter({data}) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const [age, setAge] = useState('');
   const [open, setOpen] = useState(false);
 
-  const handleChangeFilterModal = (event) => {
-      setAge(event.target.value);
-  };
   const openFilter = () => setOpen(true);
-  const closeFilter = () => setOpen(false);
-  const resetFilter = () => setAge('');   
+  const closeFilter = () => setOpen(false); 
 
   const api_url = import.meta.env.VITE_API_URL;
   const [slBrand, setSlBrand] = useState([]);
@@ -211,186 +206,49 @@ export default function Filter({data}) {
                 <TextField id="txtKeyword" label="Kata Kunci" variant="outlined" size="small" />
               </FormControl>
             </Grid>
-            <Grid item xs={6} md={6}>
-              <FormControl fullWidth size='small'>
-                <InputLabel id="lblBrand">Merek</InputLabel>
-                <Select
-                  labelId="lblBrand"
-                  id="slBrand"
-                  value={age}
-                  label="Merek"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+            <Grid item xs={6} md={6}>              
+              <SlBrand list={slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={6} md={6}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblModel">Model</InputLabel>
-                <Select
-                  labelId="lblModel"
-                  id="slModel"
-                  value={age}
-                  label="Model"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlModel list={slModel} val={formData.model} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={6}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblPriceStart">Harga Awal</InputLabel>
-                <Select
-                  labelId="lblPriceStart"
-                  id="slPriceStart"
-                  value={age}
-                  label="Harga Awal"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlPriceStart list={prices} val={formData.priceStart} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={6}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblPriceEnd">Harga Akhir</InputLabel>
-                <Select
-                  labelId="lblPriceEnd"
-                  id="slPriceEnd"
-                  value={age}
-                  label="Harga Akhir"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlPriceEnd list={prices} priceStart={formData.priceStart} val={formData.priceEnd} handleChange={(e) => handleChange(e)} />
             </Grid>
-            <Grid item xs={12}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblYear">Tahun</InputLabel>
-                <Select
-                  labelId="lblYear"
-                  id="slYear"
-                  value={age}
-                  label="Tahun"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+            <Grid item xs={6}>
+              <SlYearStart list={years} val={formData.yearStart} handleChange={(e) => handleChange(e)} />
             </Grid>
-            <Grid item xs={12}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblKilometer">Kilometer</InputLabel>
-                <Select
-                  labelId="lblKilometer"
-                  id="slKilometer"
-                  value={age}
-                  label="Kilometer"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+            <Grid item xs={6}>
+              <SlYearEnd list={years} yearStart={formData.yearStart} val={formData.yearEnd} handleChange={(e) => handleChange(e)} />
+            </Grid>            
+            <Grid item xs={6}>
+              <SlKilometerStart list={kilometers} val={formData.kilometerStart} handleChange={(e) => handleChange(e)} />
+            </Grid>
+            <Grid item xs={6}>
+              <SlKilometerEnd list={kilometers} kilometerStart={formData.kilometerStart} val={formData.kilometerEnd} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={6} md={6}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblTransmition">Transmisi</InputLabel>
-                <Select
-                  labelId="lblTransmition"
-                  id="slTransmition"
-                  value={age}
-                  label="Transmisi"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlTransmission list={slTransmission} val={formData.transmission} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={6} md={6}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblBodyType">Tipe Bodi</InputLabel>
-                <Select
-                  labelId="lblBodyType"
-                  id="slBodyType"
-                  value={age}
-                  label="Tipe Bodi"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlBodyType list={slBodyType} val={formData.bodyType} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={12}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblColor">Warna</InputLabel>
-                <Select
-                  labelId="lblColor"
-                  id="slColor"
-                  value={age}
-                  label="Warna"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlColor list={slColor} val={formData.color} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={12}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblFuel">Bahan Bakar</InputLabel>
-                <Select
-                  labelId="lblFuel"
-                  id="slFuel"
-                  value={age}
-                  label="Bahan Bakar"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlFuel list={slFuel} val={formData.fuel} handleChange={(e) => handleChange(e)} />
             </Grid>
             <Grid item xs={12}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="lblDriveWheelType">Tipe Roda Penggerak</InputLabel>
-                <Select
-                  labelId="lblDriveWheelType"
-                  id="slDriveWheelType"
-                  value={age}
-                  label="Tipe Roda Penggerak"
-                  onChange={handleChangeFilterModal}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+              <SlDriveWheelType list={slDriveWheelType} val={formData.driveWheelType} handleChange={(e) => handleChange(e)} />
             </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={resetFilter}>
+          <Button onClick={handleReset}>
             Atur Ulang
           </Button>
           <Button autoFocus onClick={closeFilter}>
