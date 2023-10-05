@@ -38,7 +38,7 @@ export default function ListItem({queryData}) {
                 setCarCount(rsp.count)
             } else {
                 // Handle errors
-                console.log(response);
+                console.log(await response.json());
             }
         } catch (error) {
             console.error('Error:', error);
@@ -55,7 +55,7 @@ export default function ListItem({queryData}) {
                 {cars.length > 0 ? 
                     cars.map((data) => {
                         return (
-                            <Grid item xs={12}>
+                            <Grid item xs={12} key={data._id}>
                                 <Card>
                                     <Grid container p={2} spacing={1}>
                                         <Grid item xs={12} md={6} lg={4}>
@@ -75,7 +75,11 @@ export default function ListItem({queryData}) {
                                                         {data.name}
                                                     </Typography>
                                                     <Typography gutterBottom component="div" sx={{ fontSize: '12px', color: '#999' }}>
-                                                        {data.sellerNote}
+                                                        {
+                                                            data.sellerNote 
+                                                            ? <div dangerouslySetInnerHTML={{ __html: data.sellerNote.substring(0, 85) + '...' }} /> 
+                                                            : 'Belum ada deskripsi'
+                                                        }
                                                     </Typography>
                                                     <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                                                         Rp. { formattedNumber(data.price) }
@@ -94,7 +98,7 @@ export default function ListItem({queryData}) {
                                                         <br/>
                                                         <PermDataSettingIcon sx={{ color: "#687d94", fontSize: 'large', margin: '0 5px -4px 10px' }} />
                                                         <Typography gutterBottom color="#687d94" component="span" sx={{ fontSize: '12px' }}>
-                                                            { data.transmission }
+                                                            { data.transmission.name }
                                                         </Typography>
                                                     </div>
                                                 </Grid>
