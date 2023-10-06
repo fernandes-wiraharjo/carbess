@@ -4,7 +4,7 @@ import Banner from '/images/banners/banner.jpg';
 export default function StepToBuyBanner() {
     return (
         <section className='StepToBuyBanner'>
-            <a href="#">
+            <a href="/car-list">
                 <article className='article'>
                     <picture className='image'>
                         <source media="(min-width: 0px)" srcSet={Banner} />

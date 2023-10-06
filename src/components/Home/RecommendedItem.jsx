@@ -31,15 +31,19 @@ export default function RecommendedItem() {
                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
                     Direkomendasikan untuk Anda
                 </Typography>
-                <Button id="btnShowAllTop" variant="contained" size="small" sx={{ 
-                    backgroundColor: '#000',
-                    ':hover': {
+                <a href="/car-list">
+                    <Button id="btnShowAllTop" variant="contained" size="small" sx={{ 
                         backgroundColor: '#000',
-                        opacity: '0.6'
-                      },
-                    textTransform: 'none'
-                }}
-                >{`Tampilkan Semua Mobil >>`}</Button>
+                        ':hover': {
+                            backgroundColor: '#000',
+                            opacity: '0.6'
+                        },
+                        textTransform: 'none'
+                    }}
+                    >
+                        {`Tampilkan Semua Mobil >>`}
+                    </Button>
+                </a>
             </div>
             <Grid container spacing={2} mt={2}>
                 {car.length > 0 ? 
@@ -79,15 +83,17 @@ export default function RecommendedItem() {
                     </Grid>
                 }
             </Grid>
-            <Button id='btnShowAllBottom' variant="contained" size="small" sx={{ 
-                backgroundColor: '#000',
-                ':hover': {
+            <a href="/car-list">
+                <Button id='btnShowAllBottom' variant="contained" size="small" sx={{ 
                     backgroundColor: '#000',
-                    opacity: '0.6'
-                    },
-                textTransform: 'none'
-            }}
-            >{`Tampilkan Semua Mobil >>`}</Button>
+                    ':hover': {
+                        backgroundColor: '#000',
+                        opacity: '0.6'
+                        },
+                    textTransform: 'none'
+                }}
+                >{`Tampilkan Semua Mobil >>`}</Button>
+            </a>
         </section>
     );
 }
