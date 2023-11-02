@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -20,6 +21,8 @@ export default function BrandList() {
         setBrand(await response.json());
     };
 
+    const navigate = useNavigate();
+
     return (
         <section className='BrandList'>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
@@ -28,10 +31,11 @@ export default function BrandList() {
             <Grid container spacing={2} mt={2}>
                 {brand.length > 0 ? 
                     brand.map((data) => {
+                        const formData = { brand: data._id };
                         return (
                             <Grid item xs={4} md={1.5} lg={1.5} key={data._id}>
                                 <Card>
-                                    <CardActionArea>
+                                    <CardActionArea onClick={() => navigate('/car-list', { state: { formData } })}>
                                         <CardMedia
                                             component="img"
                                             height="110"
