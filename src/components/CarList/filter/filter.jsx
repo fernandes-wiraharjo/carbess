@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SlBrand, SlModel, SlPriceStart, SlPriceEnd, SlYearStart, SlYearEnd, SlKilometerStart, SlKilometerEnd,
   SlTransmission, SlBodyType, SlColor, SlFuel, SlDriveWheelType } from '../../Inputs/Selects';
 import Range from './../input-range/range';
@@ -75,6 +76,7 @@ export default function Filter({data}) {
   const closeFilter = () => setOpen(false); 
 
   const api_url = import.meta.env.VITE_API_URL;
+  // const [search, setSearch] = useState('');
   const [slBrand, setSlBrand] = useState([]);
   const [slModel, setSlModel] = useState([]);
   const [slTransmission, setSlTransmission] = useState([]);
@@ -120,7 +122,8 @@ export default function Filter({data}) {
 
   const [formData, setFormData] = useState({transmission: data.transmission, bodyType: data.bodyType, fuel: data.fuel, 
     driveWheelType: data.driveWheelType, brand: data.brand, model: data.model, priceStart: data.priceStart, priceEnd: data.priceEnd, 
-    yearStart: data.yearStart, yearEnd: data.yearEnd, kilometerStart: data.kilometerStart, kilometerEnd: data.kilometerEnd, color: data.color
+    yearStart: data.yearStart, yearEnd: data.yearEnd, kilometerStart: data.kilometerStart, kilometerEnd: data.kilometerEnd, color: data.color,
+    search: ''
   });
 
   const handleChange = (evt) => {
@@ -161,6 +164,13 @@ export default function Filter({data}) {
   const handleReset = () => {
     setFormData(initFormDataFilter);
     setSlModel([]);
+    // setSearch('');
+  };
+
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate('/car-list', { state: { formData } });
+    window.location.reload()
   };
 
   return (
@@ -203,7 +213,7 @@ export default function Filter({data}) {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <TextField id="txtKeyword" label="Kata Kunci" variant="outlined" size="small" />
+                <TextField name="search" value={formData.search} label="Kata Kunci" variant="outlined" size="small" onChange={(e) => handleChange(e)} />
               </FormControl>
             </Grid>
             <Grid item xs={6} md={6}>              
@@ -251,18 +261,19 @@ export default function Filter({data}) {
           <Button onClick={handleReset}>
             Atur Ulang
           </Button>
-          <Button autoFocus onClick={closeFilter}>
+          <Button autoFocus onClick={handleSubmit}>
             Cari
           </Button>
         </DialogActions>
       </BootstrapDialog>
 
       <div className="filter__container">
-        <div className="filter__row">
-          <a style={{ cursor: 'pointer' }} onClick={handleReset}>Atur Ulang</a>
+        <div className="filter__row_btnlink">
+          <a onClick={handleReset}>Atur Ulang</a>
+          <a onClick={handleSubmit}>Cari</a>
         </div>
         <div className="filter__row">
-          <KeywordFilter />
+          <KeywordFilter val={formData.search} handleChange={(e) => handleChange(e)} />
         </div>
         <div className="filter__row">
           <BrandFilter list={slBrand} val={formData.brand} handleChange={(e) => handleChange(e)} />
@@ -303,13 +314,17 @@ export default function Filter({data}) {
         <div className="filter__row">
           <DriveWheelTypeFilter list={slDriveWheelType} val={formData.driveWheelType} handleChange={(e) => handleChange(e)} />
         </div>
+        <div className="filter__row_btnlink">
+          <a onClick={handleReset}>Atur Ulang</a>
+          <a onClick={handleSubmit}>Cari</a>
+        </div>
       </div>
     </section>
   )
 };
 
 
-const KeywordFilter = () => (
+const KeywordFilter = ({val, handleChange}) => (
   <div className="filter__item">
     <input id="keyword" className="keybig" type="checkbox" defaultChecked />
     <label htmlFor="keyword" className="label">
@@ -318,7 +333,10 @@ const KeywordFilter = () => (
         <polyline points="6 9 12 15 18 9"/>
     </svg>
     </label>
-    <div className="container"><input type="text" className="keyword__search" placeholder="contoh: Honda" /></div>
+    <div className="container">
+      <TextField name="search" value={val} label="Kata Kunci" variant="outlined" size="small" onChange={(e) => handleChange(e)} />
+      {/* <input type="text" name="search" value={val} className="keyword__search" placeholder="contoh: Honda" handleChange={(e) => handleChange(e)} /> */}
+    </div>
   </div>
 );
 

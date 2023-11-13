@@ -9,9 +9,10 @@
 
 .filter__container a {
     color: blue;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     font-size: smaller;
     text-decoration: none;
+    cursor: pointer;
 }
 
 
@@ -20,6 +21,14 @@
 /*   min-height: 50px; */
     padding: 10px 10px 10px 0;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.filter__row_btnlink {
+    width: inherit;
+    padding: 10px 10px 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-Content: space-between
 }
 
 .filter__row:last-child {

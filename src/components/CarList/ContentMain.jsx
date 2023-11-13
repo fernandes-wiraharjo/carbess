@@ -2,7 +2,7 @@ import Wrapper from './wrapper/wrapper';
 import { LeftColumn, RightColumn } from './columns/column.jsx';
 import Filter from './filter/filter';
 import ListItem from './ListItem';
-import CarListPaging from '../Others/Paging';
+// import CarListPaging from '../Others/Paging';
 import './ContentMain.css';
 
 export default function ContentMain({data}) {
@@ -14,7 +14,7 @@ export default function ContentMain({data}) {
                 </LeftColumn>
                 <RightColumn>
                     <ListItem queryData={data} />
-                    <CarListPaging />
+                    {/* <CarListPaging /> */}
                 </RightColumn>
             </Wrapper>
             <hr />
