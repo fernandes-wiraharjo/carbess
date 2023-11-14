@@ -123,7 +123,7 @@ export default function Filter({data}) {
   const [formData, setFormData] = useState({transmission: data.transmission, bodyType: data.bodyType, fuel: data.fuel, 
     driveWheelType: data.driveWheelType, brand: data.brand, model: data.model, priceStart: data.priceStart, priceEnd: data.priceEnd, 
     yearStart: data.yearStart, yearEnd: data.yearEnd, kilometerStart: data.kilometerStart, kilometerEnd: data.kilometerEnd, color: data.color,
-    search: ''
+    search: data.search, sort: data.sort
   });
 
   const handleChange = (evt) => {

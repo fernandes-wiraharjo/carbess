@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -16,6 +17,7 @@ export default function ListItem({queryData}) {
     const api_url = import.meta.env.VITE_API_URL;
     const [carCount, setCarCount] = useState(0);
     const [cars, setCars] = useState([]);
+    const [formData, setFormData] = useState(queryData);
 
     useEffect(() => {
         getList(queryData)
@@ -45,11 +47,24 @@ export default function ListItem({queryData}) {
         }
     };
 
+    const navigate = useNavigate();
+    const handleChange = (fieldName, value) => {
+        setFormData((currData) => {
+            return {
+                ...currData,
+                [fieldName]: value
+            }
+        });
+
+        navigate('/car-list', { state: { formData: { ...formData, [fieldName]: value } } });
+        window.location.reload();
+    };
+
     return (
         <section className='MainContent'>
             <div id="header">
                 <div id="lblTitle"><b>Cari Mobil Bekas Pontianak ({ formattedNumber(carCount) } unit)</b></div>
-                <SlSort />
+                <SlSort val={formData.sort} handleChange={(e) => handleChange('sort', e.target.value)} />
             </div>
             <Grid container spacing={2.5} mt={1} className='ListItem'>
                 {cars.length > 0 ? 

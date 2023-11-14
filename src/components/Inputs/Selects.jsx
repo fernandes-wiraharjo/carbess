@@ -365,13 +365,7 @@ export function SlDriveWheelType({list, val, handleChange}) {
     );
 }
 
-export function SlSort() {
-    const [sort, setSort] = useState('');
-
-    const handleChange = (event) => {
-        setSort(event.target.value);
-    };
-
+export function SlSort({val, handleChange}) {
     return (
         <FormControl sx={{ minWidth: 200 }} size="small">
             <InputLabel id="lblSort">
@@ -380,14 +374,15 @@ export function SlSort() {
             <Select
                 labelId="lblSort"
                 id="slSort"
-                value={sort}
+                value={val}
                 label="Urut Berdasarkan"
                 onChange={handleChange}
+                name="sort"
             >
-                <MenuItem value={1}>Terbaru ke Terlama</MenuItem>
-                <MenuItem value={2}>Terlama ke Terbaru</MenuItem>
-                <MenuItem value={3}>Harga Rendah ke Tinggi</MenuItem>
-                <MenuItem value={4}>Harga Tinggi ke Rendah</MenuItem>
+                <MenuItem value={'created_at -1'}>Terbaru ke Terlama</MenuItem>
+                <MenuItem value={'created_at 1'}>Terlama ke Terbaru</MenuItem>
+                <MenuItem value={'price 1'}>Harga Rendah ke Tinggi</MenuItem>
+                <MenuItem value={'price -1'}>Harga Tinggi ke Rendah</MenuItem>
             </Select>
         </FormControl>
     );
