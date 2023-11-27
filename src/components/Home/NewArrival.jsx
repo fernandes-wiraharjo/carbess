@@ -34,7 +34,7 @@ export default function NewArrival() {
                         return (
                             <Grid item xs={12} sm={6} lg={3} key={data._id}>
                                 <Card>
-                                    <NavLink to="/car-detail">
+                                    <NavLink to={`/car-detail/${data._id}`}>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"

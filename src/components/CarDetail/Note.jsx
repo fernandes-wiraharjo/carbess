@@ -23,7 +23,7 @@ function CustomTabPanel(props) {
       >
         {value === index && (
           <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
+            <Typography component="div">{children}</Typography>
           </Box>
         )}
       </div>
@@ -43,7 +43,7 @@ function a11yProps(index) {
     };
 }
 
-export default function Note() {
+export default function Note({data}) {
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -67,25 +67,7 @@ export default function Note() {
                             </Tabs>
                         </Box>
                         <CustomTabPanel value={value} index={0}>
-                            Tawaran Terbaik dari Carmudi.co.id <br/><br/>
-
-                            READY DAN SIAP KIRIM <br/><br/>
-
-                            ❤️𝗔𝗽𝗮𝗽𝘂𝗻 𝗠𝗼𝗯𝗶𝗹𝗻𝘆𝗮 𝗠 𝗖𝗮𝗿 𝗦𝗼𝗹𝘂𝘁𝗶𝗼𝗻 𝗦𝗼𝗹𝘂𝘀𝗶𝗻𝘆𝗮!🧏 <br/><br/>
-
-                            Upgrade ke mobil impian, sekarang bukan cuman angan looh! <br/>
-                            Apalagi kalau Anda adalah bisnis owner / pekerja keras yg tidak ada waktu buat urusin sana sini yang akhirnya hanya buang buang waktu, karena kami sangat yakin buat Anda waktu adalah segalanya bukan uang untuk segalanya. Karena kalau uang adalah segalanya tapi waktu Anda terbuang percuma hanya karena urusan remeh temeh, maka dipastikan kesempatan / peluang Anda untuk menghasilkan yang lebih besar ( CUAN ) bisa saja sekejap hilang. Karena dimana era sekarang ini kecepatan & ketepatan waktu adalah segalanya. <br/><br/>
-
-                            So, Kamu bisa dapatkan mobil impian dengan kualitas idaman & Tepat Guna bersama team yg sangat berpengalaman & juga berkompeten di bidangnya untuk menghasilkan Solusi Tepat tentang mobil Impian yang ingin Anda miliki tanpa harus buang buang waktu. <br/>
-                            Dan semua hanya ada di M Car Solution! <br/><br/>
-
-                            ❤️𝙀𝙣𝙟𝙤𝙮 𝙔𝙤𝙪𝙧 𝘿𝙖𝙮, 𝙎𝙩𝙖𝙮 𝙎𝙖𝙛𝙚 & 𝙃𝙚𝙖𝙡𝙩𝙝𝙮🧏 <br/><br/>
-
-                            Yuk, hubungi kami sekarang! <br/>
-                            IG : @mcarsolution <br/>
-                            📲 +628-1311011749 <br/>
-                            📲 +628-568768586 <br/>
-                            🌐 www.mcar-solution.com
+                            <div dangerouslySetInnerHTML={{ __html: data.sellerNote || "-" }} />
                         </CustomTabPanel>
                         <CustomTabPanel value={value} index={1}>
                             <Typography variant="subtitle2" className='specTitle'>TRANSMISI</Typography>
@@ -96,11 +78,11 @@ export default function Note() {
                                             <Typography variant="body2">Transmisi</Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="body2" className='specContent'>Automatic</Typography>
+                                            <Typography variant="body2" className='specContent'>{data.transmission && data.transmission.name ? data.transmission.name : '-'}</Typography>
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
-                                <Grid item xs={12} md={6}>
+                                {/* <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
                                         <Grid item xs={6}>
                                             <Typography variant="body2">Jumlah Gir</Typography>
@@ -109,7 +91,7 @@ export default function Note() {
                                             <Typography variant="body2" className='specContent'>6</Typography>
                                         </Grid>
                                     </Grid>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
 
                             <Typography variant="subtitle2" className='specTitleMT'>GENERAL</Typography>
@@ -120,7 +102,7 @@ export default function Note() {
                                             <Typography variant="body2">Pintu</Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="body2" className='specContent'>5</Typography>
+                                            <Typography variant="body2" className='specContent'>{data.door || "-"}</Typography>
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
@@ -130,11 +112,31 @@ export default function Note() {
                                             <Typography variant="body2">Kapasitas Kursi</Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="body2" className='specContent'>7</Typography>
+                                            <Typography variant="body2" className='specContent'>{data.passenger || "-"}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
+                                    <Grid container className='specBorderBottom'>
+                                        <Grid item xs={6}>
+                                            <Typography variant="body2">Tipe Bodi</Typography>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <Typography variant="body2" className='specContent'>{data.bodyType && data.bodyType.name ? data.bodyType.name : '-'}</Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Grid container className='specBorderBottom'>
+                                        <Grid item xs={6}>
+                                            <Typography variant="body2">Tipe Roda Penggerak</Typography>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <Typography variant="body2" className='specContent'>{data.driveWheelType && data.driveWheelType.name ? data.driveWheelType.name : '-'}</Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                {/* <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
                                         <Grid item xs={6}>
                                             <Typography variant="body2">Dirakit</Typography>
@@ -143,7 +145,7 @@ export default function Note() {
                                             <Typography variant="body2" className='specContent'>Complete Built Up (CBU)</Typography>
                                         </Grid>
                                     </Grid>                                    
-                                </Grid>
+                                </Grid> */}
                             </Grid>
 
                             <Typography variant="subtitle2" className='specTitleMT'>SPESIFIKASI MESIN</Typography>
@@ -154,11 +156,11 @@ export default function Note() {
                                             <Typography variant="body2">Engine CC</Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="body2" className='specContent'>1496</Typography>
+                                            <Typography variant="body2" className='specContent'>{data.machineCC ? data.machineCC + " cc" : "-"}</Typography>
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
-                                <Grid item xs={12} md={6}>
+                                {/* <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
                                         <Grid item xs={6}>
                                             <Typography variant="body2">Baut (mm)</Typography>
@@ -227,20 +229,20 @@ export default function Note() {
                                             <Typography variant="body2" className='specContent'>Aspirated</Typography>
                                         </Grid>
                                     </Grid>                                    
-                                </Grid>
+                                </Grid> */}
                                 <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
                                         <Grid item xs={6}>
                                             <Typography variant="body2">Tipe Bahan Bakar</Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="body2" className='specContent'>Pertamax</Typography>
+                                            <Typography variant="body2" className='specContent'>{data.fuel && data.fuel.name ? data.fuel.name : '-'}</Typography>
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
                             </Grid>
 
-                            <Typography variant="subtitle2" className='specTitleMT'>KINERJA & EKONOMI</Typography>
+                            {/* <Typography variant="subtitle2" className='specTitleMT'>KINERJA & EKONOMI</Typography>
                             <Grid container spacing={2} mt={0} color='#576a7f'>
                                 <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
@@ -282,9 +284,9 @@ export default function Note() {
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
-                            </Grid>
+                            </Grid> */}
 
-                            <Typography variant="subtitle2" className='specTitleMT'>SETIR</Typography>
+                            {/* <Typography variant="subtitle2" className='specTitleMT'>SETIR</Typography>
                             <Grid container spacing={2} mt={0} color='#576a7f'>
                                 <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
@@ -296,9 +298,9 @@ export default function Note() {
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
-                            </Grid>
+                            </Grid> */}
 
-                            <Typography variant="subtitle2" className='specTitleMT'>DIMENSI & BERAT</Typography>
+                            {/* <Typography variant="subtitle2" className='specTitleMT'>DIMENSI & BERAT</Typography>
                             <Grid container spacing={2} mt={0} color='#576a7f' className='specLastGrid'>
                                 <Grid item xs={12} md={6}>
                                     <Grid container className='specBorderBottom'>
@@ -360,7 +362,7 @@ export default function Note() {
                                         </Grid>
                                     </Grid>                                    
                                 </Grid>
-                            </Grid>
+                            </Grid> */}
                         </CustomTabPanel>
                     </Box>
                 </ThemeProvider>

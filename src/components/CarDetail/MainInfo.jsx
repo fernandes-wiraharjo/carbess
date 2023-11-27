@@ -13,8 +13,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import './MainInfo.css';
+import { formattedNumber } from '../Utils.js';
 
-export default function MainInfo() {
+export default function MainInfo({data}) {
+    const dateObject = new Date(data.created_at);
+
+    const formattedDate = dateObject.toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+
+    if (!data || !Array.isArray(data.images)) {
+        // console.error("Invalid data structure:", data);
+        return null; // or display a placeholder or loading message
+    }
+    
+    const images = data.images.map((item) => ({
+        original: item.image,
+        thumbnail: item.image,
+    }));
+    
     return (
         <section className='MainInfo'>
             <a href="/">
@@ -31,16 +50,16 @@ export default function MainInfo() {
                 </Button>
             </a>
             <Typography variant="h5" sx={{ fontWeight: 'bold', marginTop: '30px' }}>
-                Xpander Ultimate 2018
+                {data.name}
             </Typography>
             <Typography id="updatedAt" variant="subtitle2" sx={{ fontSize: 'small', color:'gray', marginTop: '10px', display: 'inline-block' }}>
-                Diperbarui pada: 28 July 2023
+                Diperbarui pada: {formattedDate}
             </Typography>
             <Button id="btnCopyLink" variant="text" startIcon={<ContentCopyIcon />} color="black">Salin Tautan</Button>
             <Button id="btnWA" variant="contained" startIcon={<WhatsAppIcon />} color="success">WhatsApp</Button>
-            <ProductImages />
+            <ProductImages images={images} />
             <Typography variant="h5" sx={{ fontWeight: 'bold', marginTop: '10px' }} color='primary.dark'>
-                Rp. 225.000.000
+                Rp. { formattedNumber(data.price) }
             </Typography>
             <Grid container spacing={2} mt={1}>
                 <Grid item xs={4} sm={4} md={2} lg={2} className='specGrid'>
@@ -51,7 +70,7 @@ export default function MainInfo() {
                                 Tahun
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2018
+                                {data.year}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -64,7 +83,7 @@ export default function MainInfo() {
                                 Kilometer
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                42.789 km
+                                {formattedNumber(data.kilometer)} km
                             </Typography>
                         </CardContent>
                     </Card>
@@ -77,7 +96,7 @@ export default function MainInfo() {
                                 Warna
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                Silver
+                                {data.color.name}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -90,7 +109,7 @@ export default function MainInfo() {
                                 Mesin
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                2494 cc
+                                {data.machineCC ? data.machineCC + " cc" : "-"}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -103,7 +122,7 @@ export default function MainInfo() {
                                 Transmisi
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                Automatic
+                                {data.transmission.name}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -116,7 +135,7 @@ export default function MainInfo() {
                                 Penumpang
                             </Typography>
                             <Typography variant="body2" color="#576a7f" sx={{ fontWeight: 'bold', marginBottom: '-10px' }}>
-                                7
+                                {data.passenger || "-"}
                             </Typography>
                         </CardContent>
                     </Card>
