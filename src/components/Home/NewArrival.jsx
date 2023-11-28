@@ -23,6 +23,13 @@ export default function NewArrival() {
         setCar(await response.json());
     };
 
+    const handleWhatsAppClick = (carDetailLink) => {
+        const phoneNumber = '6285921592597';
+        const message = encodeURIComponent("Saya tertarik dengan mobil ini, saya ingin melihat secara langsung kondisi mobil Anda.");
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}%0A${encodeURIComponent(window.location.origin + carDetailLink)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
     return (        
         <section className='NewArrival'>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
@@ -31,10 +38,11 @@ export default function NewArrival() {
             <Grid container spacing={2} mt={2}>
                 {car.length > 0 ? 
                     car.map((data) => {
+                        const carDetailLink = `/car-detail/${data._id}/${data.model}`;
                         return (
                             <Grid item xs={12} sm={6} lg={3} key={data._id}>
                                 <Card>
-                                    <NavLink to={`/car-detail/${data._id}`}>
+                                    <NavLink to={carDetailLink}>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"
@@ -53,7 +61,14 @@ export default function NewArrival() {
                                         </CardActionArea>
                                     </NavLink>
                                     <CardActions>
-                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                        <Button 
+                                            aria-label="whatsapp" 
+                                            variant="outlined" 
+                                            sx={{ width: '100%' }} 
+                                            color="success" 
+                                            size="medium"
+                                            onClick={() => handleWhatsAppClick(carDetailLink)}
+                                        >
                                             <WhatsAppIcon />
                                         </Button>
                                     </CardActions>

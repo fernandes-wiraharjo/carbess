@@ -12,6 +12,10 @@
     display: none;
 }
 
+.RecommendedItem a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 912px) {
     .RecommendedItem img {
         height: 350px;

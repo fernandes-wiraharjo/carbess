@@ -11,7 +11,7 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/car-detail/:id" element={<CarDetail />} />
+          <Route path="/car-detail/:id/:idModel" element={<CarDetail />} />
           <Route path="/car-list" element={<CarList />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

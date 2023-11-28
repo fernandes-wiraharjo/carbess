@@ -60,6 +60,18 @@ export default function ListItem({queryData}) {
         window.location.reload();
     };
 
+    const handleCardClick = (carDetailLink) => {
+        navigate(carDetailLink);
+      };
+
+    const handleWhatsAppClick = (event, carDetailLink) => {
+        event.stopPropagation();
+        const phoneNumber = '6285921592597';
+        const message = encodeURIComponent("Saya tertarik dengan mobil ini, saya ingin melihat secara langsung kondisi mobil Anda.");
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}%0A${encodeURIComponent(window.location.origin + carDetailLink)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
     return (
         <section className='MainContent'>
             <div id="header">
@@ -69,8 +81,9 @@ export default function ListItem({queryData}) {
             <Grid container spacing={2.5} mt={1} className='ListItem'>
                 {cars.length > 0 ? 
                     cars.map((data) => {
+                        const carDetailLink = `/car-detail/${data._id}/${data.model}`;
                         return (
-                            <Grid item xs={12} key={data._id}>
+                            <Grid item xs={12} key={data._id} onClick={() => handleCardClick(carDetailLink)}>
                                 <Card>
                                     <Grid container p={2} spacing={1}>
                                         <Grid item xs={12} md={6} lg={4}>
@@ -119,7 +132,14 @@ export default function ListItem({queryData}) {
                                                 </Grid>
                                                 <Grid item xs={12} sm={6} lg={12}>
                                                     <CardActions>
-                                                        <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
+                                                        <Button 
+                                                            aria-label="whatsapp" 
+                                                            variant="outlined" 
+                                                            sx={{ width: '100%' }} 
+                                                            color="success" 
+                                                            size="medium"
+                                                            onClick={(event) => handleWhatsAppClick(event, carDetailLink)}
+                                                        >
                                                             <WhatsAppIcon sx={{ marginRight: '5px' }} /> WhatsApp
                                                         </Button>
                                                     </CardActions>

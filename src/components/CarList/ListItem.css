@@ -4,6 +4,10 @@
    border-radius: 5px;
 }
 
+.ListItem a {
+   text-decoration: none;
+}
+
 @media only screen and (width: 1024px) {
    .ListItem img {
        height: 150px;

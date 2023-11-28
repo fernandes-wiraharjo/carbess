@@ -34,6 +34,40 @@ export default function MainInfo({data}) {
         thumbnail: item.image,
     }));
     
+    const handleCopyLink = () => {
+        // Get the current URL
+        const currentURL = window.location.href;
+
+        // Use the Clipboard API to copy the URL to the clipboard
+        navigator.clipboard.writeText(currentURL)
+            .then(() => {
+                alert('URL copied to clipboard')
+                // console.log('URL copied to clipboard:', currentURL);
+                // You can optionally show a success message to the user
+            })
+            .catch((err) => {
+                alert('Unable to copy URL to clipboard')
+                // console.error('Unable to copy URL to clipboard', err);
+                // Handle the error, e.g., show an error message to the user
+            });
+    };
+
+    const handleWhatsAppClick = () => {
+        const fixedPhoneNumber = '6285921592597';
+
+        // Get the current page URL
+        const currentURL = encodeURIComponent(window.location.href);
+    
+        // Compose the WhatsApp message
+        const message = encodeURIComponent("Saya tertarik dengan mobil ini, saya ingin melihat secara langsung kondisi mobil Anda.");
+    
+        // Create the WhatsApp API link
+        const whatsappLink = `https://api.whatsapp.com/send?phone=${fixedPhoneNumber}&text=${message}%0A${currentURL}`;
+    
+        // Open the WhatsApp link in a new tab
+        window.open(whatsappLink, '_blank');
+    };
+
     return (
         <section className='MainInfo'>
             <a href="/">
@@ -55,8 +89,8 @@ export default function MainInfo({data}) {
             <Typography id="updatedAt" variant="subtitle2" sx={{ fontSize: 'small', color:'gray', marginTop: '10px', display: 'inline-block' }}>
                 Diperbarui pada: {formattedDate}
             </Typography>
-            <Button id="btnCopyLink" variant="text" startIcon={<ContentCopyIcon />} color="black">Salin Tautan</Button>
-            <Button id="btnWA" variant="contained" startIcon={<WhatsAppIcon />} color="success">WhatsApp</Button>
+            <Button id="btnCopyLink" variant="text" startIcon={<ContentCopyIcon />} color="black" onClick={handleCopyLink}>Salin Tautan</Button>
+            <Button id="btnWA" variant="contained" startIcon={<WhatsAppIcon />} color="success" onClick={handleWhatsAppClick}>WhatsApp</Button>
             <ProductImages images={images} />
             <Typography variant="h5" sx={{ fontWeight: 'bold', marginTop: '10px' }} color='primary.dark'>
                 Rp. { formattedNumber(data.price) }

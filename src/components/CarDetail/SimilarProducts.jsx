@@ -7,116 +7,68 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './SimilarProducts.css';
+import { formattedNumber } from '../Utils.js';
 
-export default function SimilarProducts() {
+export default function SimilarProducts({cars}) {
+    const handleWhatsAppClick = (carDetailLink) => {
+        const phoneNumber = '6285921592597';
+        const message = encodeURIComponent("Saya tertarik dengan mobil ini, saya ingin melihat secara langsung kondisi mobil Anda.");
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}%0A${encodeURIComponent(window.location.origin + carDetailLink)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+    
     return (
         <section className='SimilarProducts'>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
                 Produk Serupa
             </Typography>
             <Grid container spacing={2} mt={2}>
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Card>
-                        <NavLink to="/car-detail">
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="250"
-                                    image="/images/new_arrivals/1.jpg"
-                                    alt="new arrival item 1"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h7" color="primary.dark" sx={{ fontWeight: 'bold' }} component="div">
-                                        Xpander Ultimate 2018
-                                    </Typography>
-                                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                        Rp. 225.000.000
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </NavLink>
-                        <CardActions>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                <WhatsAppIcon />
-                            </Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="250"
-                                image="/images/new_arrivals/2.jpg"
-                                alt="new arrival item 2"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" color="primary.dark" sx={{ fontWeight: 'bold' }} component="div">
-                                    Innova G 2018
-                                </Typography>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    Rp. 290.000.000
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                <WhatsAppIcon />
-                            </Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="250"
-                                image="/images/new_arrivals/3.jpg"
-                                alt="new arrival item 3"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" color="primary.dark" sx={{ fontWeight: 'bold' }} component="div">
-                                    Camry 2011 V
-                                </Typography>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    Rp. 165.000.000
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                <WhatsAppIcon />
-                            </Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Card>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="250"
-                                image="/images/new_arrivals/4.jpg"
-                                alt="new arrival item 4"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" color="primary.dark" sx={{ fontWeight: 'bold' }} component="div">
-                                    HRV E CVT 2015
-                                </Typography>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    Rp. 235.000.000
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button aria-label="whatsapp" variant="outlined" sx={{ width: '100%' }} color="success" size="medium">
-                                <WhatsAppIcon />
-                            </Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
+                {cars.length > 0 ? 
+                    cars.map((data) => {
+                        const carDetailLink = `/car-detail/${data._id}/${data.model}`;
+                        return (
+                            <Grid item xs={12} sm={6} lg={3} key={data._id}>
+                                <Card>
+                                    <NavLink to={carDetailLink}>
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component="img"
+                                                height="250"
+                                                image={ data.images[0] ? data.images[0].image : '' }
+                                                alt={`image ${data.name}`}
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h7" color="primary.dark" sx={{ fontWeight: 'bold' }} component="div">
+                                                    { data.name }
+                                                </Typography>
+                                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                                                    Rp. { formattedNumber(data.price) }
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </NavLink>
+                                    <CardActions>
+                                        <Button 
+                                            aria-label="whatsapp" 
+                                            variant="outlined" 
+                                            sx={{ width: '100%' }} 
+                                            color="success" 
+                                            size="medium"
+                                            onClick={() => handleWhatsAppClick(carDetailLink)}
+                                        >
+                                            <WhatsAppIcon />
+                                        </Button>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                        )
+                    }) :
+                    <Grid item xs={12} sx={{ textAlign: 'center' }}>
+                        <Typography variant="h7" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+                            NO DATA AVAILABLE
+                        </Typography>
+                    </Grid>
+                }
             </Grid>
         </section>
     );
