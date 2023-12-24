@@ -33,7 +33,7 @@ export default function Footer() {
                         <Grid item sm={12} md={4}>
                             <div id="footerDevBy">
                                 <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>DEVELOPED BY</Typography>
-                                <a href='https://fw-wq9n.onrender.com/' target='blank'>
+                                <a href='https://fernandesdev.com/' target='blank'>
                                     <Typography variant="body2" className="footerContent">
                                         Fernandes Wiraharjo
                                     </Typography>
